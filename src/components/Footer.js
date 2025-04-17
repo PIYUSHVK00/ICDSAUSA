@@ -13,7 +13,6 @@ import {
   Twitter, 
   Instagram, 
   YouTube,
-  LinkedIn,
   LocationOn,
   Phone,
   Email
