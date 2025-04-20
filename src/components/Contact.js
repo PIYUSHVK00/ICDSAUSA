@@ -5,13 +5,13 @@ import {
   Grid,
   Card,
   CardContent,
-  CardMedia,
   Box,
   Divider,
   IconButton,
   useTheme,
   Chip,
-  Fade
+  Button,
+  Avatar
 } from '@mui/material';
 import { 
   Phone as PhoneIcon, 
@@ -19,46 +19,43 @@ import {
   LinkedIn as LinkedInIcon,
   Twitter as TwitterIcon,
   Work as WorkIcon,
-  Groups as GroupsIcon
+  Groups as GroupsIcon,
+  LocationOn as LocationIcon
 } from '@mui/icons-material';
-import { motion } from 'framer-motion';
 
 const mainOfficers = [
   {
     name: 'श्रीमती. जिजाबाई दगडू ढेंगळे',
     position: 'बालविकास प्रकल्प अधिकारी (प्रभारी)',
-    phone: '+91 98765 43210',
+    phone: '+919876543210',
     email: 'cdpo.ausa@icds.gov.in',
-    image: 'images/dh.jpg',
+    image: '/images/dh.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
-    },
-    isMain: true
+    }
   },
   {
     name: 'श्री. विश्वास शिवलिंग कुंभकर्ण',
     position: 'विस्तार अधिकारी (सांख्यिकी)',
-    phone: '+91 87654 32109',
+    phone: '+918765432109',
     email: 'acdpo.ausa@icds.gov.in',
-    image: 'images/Vishwas.jpg',
+    image: '/images/Vishwas.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
-    },
-    isMain: true
+    }
   },
   {
     name: 'श्रीमती. बनशंकरी रतन कलशेट्टे',
     position: 'कनिष्ठ सहाय्यक',
-    phone: '+91 76543 21098',
+    phone: '+917654321098',
     email: 'extofficer.ausa@icds.gov.in',
-    image: 'images/KL.jpg',
+    image: '/images/KL.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
-    },
-    isMain: true
+    }
   }
 ];
 
@@ -66,411 +63,379 @@ const subOfficers = [
   {
     name: 'श्रीमती सुप्रिया गोविंद शिरमवार',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 65432 10987',
+    phone: '+916543210987',
     email: 'supervisor1.ausa@icds.gov.in',
-    image: 'images/su.jpg',
+    image: '/images/su.jpg',
     area: 'बुधोडा'
   },
   {
     name: 'श्रीमती स्वाती रत्नदिप कडकधोंड',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 54321 09876',
+    phone: '+915432109876',
     email: 'supervisor2.ausa@icds.gov.in',
-    image: 'images/sw.jpg',
+    image: '/images/sw.jpg',
     area: 'आलमला'
   },
   {
     name: 'श्रीमती पल्लवी श्रीराम तोडकर',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 43210 98765',
+    phone: '+914321098765',
     email: 'accounts.ausa@icds.gov.in',
-    image: 'images/pl.jpg',
+    image: '/images/pl.jpg',
     area: 'बेलकुंड'
   },
   {
     name: 'श्रीमती भाग्यश्री नंदकुमार पाटील',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 32109 87654',
+    phone: '+913210987654',
     email: 'dataentry.ausa@icds.gov.in',
-    image: 'images/pl.jpg',
+    image: '/images/pl.jpg',
     area: 'उजनी'
   },
   {
     name: 'श्रीमती जिजाबाई दगडू ढेंगळे',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 21098 76543',
+    phone: '+912109876543',
     email: 'nutrition.ausa@icds.gov.in',
-    image: 'images/dh.jpg',
+    image: '/images/dh.jpg',
     area: 'चिंचोली काजळे'
   },
   {
     name: 'श्रीमती सुचिता हिरालाल कटके',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 10987 65432',
+    phone: '+911098765432',
     email: 'medical.ausa@icds.gov.in',
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+    image: '/images/default-female.jpg',
     area: 'भादा'
   },
   {
     name: 'श्रीमती सुलभा बाबुराव पाटील',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+91 09876 54321',
+    phone: '+910987654321',
     email: 'training.ausa@icds.gov.in',
-    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
+    image: '/images/default-female.jpg',
     area: 'हासेगांव'
   }
 ];
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 }
-};
-
-const cardVariants = {
-  hover: {
-    y: -8,
-    scale: 1.03,
-    boxShadow: '0 12px 24px rgba(0,0,0,0.15)',
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 20
-    }
-  }
-};
-
-const imageVariants = {
-  hover: {
-    scale: 1.1,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
 export default function Contact() {
   const theme = useTheme();
 
+  const handlePhoneClick = (phoneNumber) => {
+    window.open(`tel:${phoneNumber}`);
+  };
+
+  const handleEmailClick = (emailAddress) => {
+    const subject = "Enquiry from ICDS Website";
+    const body = "Dear Officer,\n\n";
+    const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
-    <Container maxWidth="lg" sx={{ py: 10 }}>
+    <Container maxWidth="lg" sx={{ py: 6 }}>
       {/* Main Officers Section */}
-      <Box textAlign="center" sx={{ mb: 9 }}>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ duration: 0.8 }}
+      <Box textAlign="center" sx={{ mb: 8 }}>
+        <Box sx={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: theme.palette.primary.light,
+          borderRadius: '50%',
+          width: 80,
+          height: 80,
+          mb: 3
+        }}>
+          <WorkIcon sx={{ fontSize: 40, color: theme.palette.primary.contrastText }} />
+        </Box>
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            fontWeight: 700,
+            mb: 2,
+            color: theme.palette.primary.dark,
+          }}
         >
-          <Typography 
-            variant="h3" 
-            sx={{ 
-              fontWeight: 800,
-              mb: 2,
-              background: theme.palette.mode === 'dark'
-                ? 'linear-gradient(45deg, #64b5f6, #1976d2)'
-                : 'linear-gradient(45deg, #0288d1, #01579b)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 2,
-              letterSpacing: 1
-            }}
-          >
-            <WorkIcon sx={{ fontSize: 40 }} />
-            Key Officers
-          </Typography>
-        </motion.div>
+          Key Officers
+        </Typography>
         <Typography 
           variant="subtitle1" 
           color="text.secondary"
           maxWidth="md"
           mx="auto"
-          sx={{ fontSize: '1.2rem', lineHeight: 1.6 }}
+          sx={{ fontSize: '1.1rem' }}
         >
-          Meet our leadership team driving child development and women empowerment initiatives
+          Meet our dedicated leadership team working for child development and women empowerment
         </Typography>
       </Box>
 
-      <Grid container spacing={4} justifyContent="center" sx={{ mb: 10 }}>
+      <Grid container spacing={4} sx={{ mb: 10 }}>
         {mainOfficers.map((member, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <motion.div
-              variants={cardVariants}
-              whileHover="hover"
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-            >
-              <Card sx={{ 
-                height: '100%', 
-                display: 'flex', 
+          <Grid item xs={12} md={4} key={index}>
+            <Card sx={{ 
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: 3,
+              boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
+              border: `1px solid ${theme.palette.divider}`,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                boxShadow: '0 12px 28px rgba(0,0,0,0.12)'
+              }
+            }}>
+              <Box sx={{ 
+                display: 'flex',
                 flexDirection: 'column',
-                borderRadius: 4,
-                boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
-                overflow: 'hidden',
-                background: theme.palette.mode === 'dark' ? '#1e1e1e' : '#fff'
+                alignItems: 'center',
+                pt: 4,
+                px: 3
               }}>
-                <Box sx={{ 
-                  pt: 3,
-                  display: 'flex',
-                  justifyContent: 'center'
-                }}>
-                  <motion.div variants={imageVariants} whileHover="hover">
-                    <CardMedia
-                      component="img"
-                      image={member.image}
-                      alt={member.name}
-                      sx={{ 
-                        height: 200,
-                        width: 200,
-                        objectFit: 'cover',
-                        borderRadius: '50%',
-                        border: `3px solid ${theme.palette.primary.light}`,
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-                      }}
-                    />
-                  </motion.div>
-                </Box>
-                <CardContent sx={{ 
-                  flexGrow: 1,
-                  px: 3,
-                  py: 4,
-                  textAlign: 'center'
-                }}>
-                  <Typography 
-                    variant="h6" 
-                    color="text.primary" 
-                    sx={{ 
-                      fontWeight: 600,
-                      mb: 1
-                    }}
-                  >
-                    {member.name}
-                  </Typography>
-                  <Typography 
-                    variant="body2" 
-                    color="text.secondary"
-                    sx={{ mb: 2 }}
-                  >
-                    {member.position}
-                  </Typography>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    mb: 2,
-                    color: theme.palette.text.secondary
-                  }}>
-                    <PhoneIcon fontSize="small" sx={{ mr: 1, color: theme.palette.primary.main }} />
-                    <Typography variant="body2">
-                      {member.phone}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                <Avatar
+                  src={member.image}
+                  alt={member.name}
+                  sx={{ 
+                    width: 120,
+                    height: 120,
+                    border: `3px solid ${theme.palette.primary.main}`,
+                    mb: 3
+                  }}
+                />
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    fontWeight: 600,
+                    mb: 1,
+                    textAlign: 'center'
+                  }}
+                >
+                  {member.name}
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  color="text.secondary"
+                  sx={{ 
                     mb: 3,
-                    color: theme.palette.text.secondary
-                  }}>
-                    <EmailIcon fontSize="small" sx={{ mr: 1, color: theme.palette.primary.main }} />
-                    <Typography variant="body2">
-                      {member.email}
-                    </Typography>
-                  </Box>
-                  <Divider sx={{ my: 2, opacity: 0.5 }} />
-                  <Box sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'center',
-                    gap: 2
-                  }}>
-                    <motion.div whileHover={{ scale: 1.2, rotate: 5 }}>
-                      <IconButton 
-                        color="primary" 
-                        size="medium"
-                        sx={{ 
-                          backgroundColor: theme.palette.primary.light + '33',
-                          '&:hover': {
-                            backgroundColor: theme.palette.primary.main,
-                            color: 'white',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-                          }
-                        }}
-                      >
-                        <LinkedInIcon />
-                      </IconButton>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.2, rotate: -5 }}>
-                      <IconButton 
-                        color="primary" 
-                        size="medium"
-                        sx={{ 
-                          backgroundColor: theme.palette.primary.light + '33',
-                          '&:hover': {
-                            backgroundColor: theme.palette.primary.main,
-                            color: 'white',
-                            boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-                          }
-                        }}
-                      >
-                        <TwitterIcon />
-                      </IconButton>
-                    </motion.div>
-                  </Box>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    textAlign: 'center'
+                  }}
+                >
+                  {member.position}
+                </Typography>
+              </Box>
+              
+              <CardContent sx={{ px: 3, pt: 0 }}>
+                <Box sx={{ mb: 2 }}>
+                  <Button
+                    fullWidth
+                    variant="outlined"
+                    startIcon={<PhoneIcon />}
+                    sx={{ 
+                      mb: 1.5,
+                      justifyContent: 'flex-start',
+                      textTransform: 'none',
+                      py: 1.5
+                    }}
+                    onClick={() => handlePhoneClick(member.phone)}
+                  >
+                    {member.phone.replace(/(\d{2})(\d{4})(\d{4})/, '$1 $2 $3')}
+                  </Button>
+                  
+                  <Button
+                    fullWidth
+                    variant="outlined"
+                    startIcon={<EmailIcon />}
+                    sx={{ 
+                      mb: 2,
+                      justifyContent: 'flex-start',
+                      textTransform: 'none',
+                      py: 1.5
+                    }}
+                    onClick={() => handleEmailClick(member.email)}
+                  >
+                    {member.email}
+                  </Button>
+                </Box>
+                
+                <Divider sx={{ my: 2 }} />
+                
+                <Box sx={{ 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  gap: 1
+                }}>
+                  <IconButton 
+                    sx={{ 
+                      backgroundColor: theme.palette.primary.light + '20',
+                      '&:hover': {
+                        backgroundColor: theme.palette.primary.main,
+                        color: 'white'
+                      }
+                    }}
+                    onClick={() => window.open(member.social.linkedin, '_blank')}
+                  >
+                    <LinkedInIcon />
+                  </IconButton>
+                  <IconButton 
+                    sx={{ 
+                      backgroundColor: theme.palette.primary.light + '20',
+                      '&:hover': {
+                        backgroundColor: theme.palette.primary.main,
+                        color: 'white'
+                      }
+                    }}
+                    onClick={() => window.open(member.social.twitter, '_blank')}
+                  >
+                    <TwitterIcon />
+                  </IconButton>
+                </Box>
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
 
-      {/* Sub Officers Section */}
+      {/* Field Officers Section */}
       <Box textAlign="center" sx={{ mb: 8 }}>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          transition={{ duration: 0.8, delay: 0.3 }}
+        <Box sx={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: theme.palette.secondary.light,
+          borderRadius: '50%',
+          width: 80,
+          height: 80,
+          mb: 3
+        }}>
+          <GroupsIcon sx={{ fontSize: 40, color: theme.palette.secondary.contrastText }} />
+        </Box>
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            fontWeight: 700,
+            mb: 2,
+            color: theme.palette.secondary.dark,
+          }}
         >
-          <Typography 
-            variant="h3" 
-            sx={{ 
-              fontWeight: 800,
-              mb: 2,
-              background: theme.palette.mode === 'dark'
-                ? 'linear-gradient(45deg, #81c784, #388e3c)'
-                : 'linear-gradient(45deg, #43a047, #1b5e20)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 2,
-              letterSpacing: 1
-            }}
-          >
-            <GroupsIcon sx={{ fontSize: 40 }} />
-            Field Officers & Staff
-          </Typography>
-        </motion.div>
+          Field Officers
+        </Typography>
         <Typography 
           variant="subtitle1" 
           color="text.secondary"
           maxWidth="md"
           mx="auto"
-          sx={{ fontSize: '1.2rem', lineHeight: 1.6 }}
+          sx={{ fontSize: '1.1rem' }}
         >
-          Our committed team executing ICDS programs across various regions
+          Our committed team members working across various regions
         </Typography>
       </Box>
 
-      <Grid container spacing={4}>
+      <Grid container spacing={3}>
         {subOfficers.map((member, index) => (
-          <Grid item xs={12} sm={6} md={4} key={index}>
-            <Fade in={true} timeout={1000 + index * 200}>
-              <motion.div
-                variants={cardVariants}
-                whileHover="hover"
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: index * 0.15, duration: 0.6 }}
-              >
-                <Card sx={{ 
-                  height: '100%', 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  borderRadius: 4,
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
-                  overflow: 'hidden',
-                  background: theme.palette.mode === 'dark' ? '#1e1e1e' : '#fff'
-                }}>
-                  <Box sx={{ 
-                    pt: 3,
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}>
-                    <motion.div variants={imageVariants} whileHover="hover">
-                      <CardMedia
-                        component="img"
-                        image={member.image}
-                        alt={member.name}
-                        sx={{ 
-                          height: 180,
-                          width: 180,
-                          objectFit: 'cover',
-                          borderRadius: '50%',
-                          border: `3px solid ${theme.palette.secondary.light}`,
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-                        }}
-                      />
-                    </motion.div>
-                  </Box>
-                  <CardContent sx={{ 
-                    flexGrow: 1,
-                    px: 3,
-                    py: 4,
+          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <Card sx={{ 
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: 3,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+              border: `1px solid ${theme.palette.divider}`,
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
+              }
+            }}>
+              <Box sx={{ 
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                pt: 3,
+                px: 2
+              }}>
+                <Avatar
+                  src={member.image}
+                  alt={member.name}
+                  sx={{ 
+                    width: 100,
+                    height: 100,
+                    border: `2px solid ${theme.palette.secondary.main}`,
+                    mb: 2
+                  }}
+                />
+                <Typography 
+                  variant="subtitle1" 
+                  sx={{ 
+                    fontWeight: 600,
+                    mb: 0.5,
                     textAlign: 'center'
-                  }}>
-                    <Typography 
-                      variant="h6" 
-                      color="text.primary" 
-                      sx={{ 
-                        fontWeight: 600,
-                        mb: 1
-                      }}
-                    >
-                      {member.name}
-                    </Typography>
-                    <Typography 
-                      variant="body2" 
-                      color="text.secondary"
-                      sx={{ mb: 2 }}
-                    >
-                      {member.position}
-                    </Typography>
-                    <Chip 
-                      label={member.area} 
-                      size="small" 
-                      color="secondary" 
-                      sx={{ 
-                        mb: 2,
-                        fontWeight: 500,
-                        background: theme.palette.mode === 'dark'
-                          ? 'linear-gradient(45deg, #f06292, #ec407a)'
-                          : 'linear-gradient(45deg, #ec407a, #d81b60)',
-                        color: 'white'
-                      }}
-                    />
-                    <Box sx={{ 
-                      display: 'flex', 
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mb: 2,
-                      color: theme.palette.text.secondary
-                    }}>
-                      <PhoneIcon fontSize="small" sx={{ mr: 1, color: theme.palette.secondary.main }} />
-                      <Typography variant="body2">
-                        {member.phone}
-                      </Typography>
-                    </Box>
-                    <Box sx={{ 
-                      display: 'flex', 
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mb: 2,
-                      color: theme.palette.text.secondary
-                    }}>
-                      <EmailIcon fontSize="small" sx={{ mr: 1, color: theme.palette.secondary.main }} />
-                      <Typography variant="body2">
-                        {member.email}
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Fade>
+                  }}
+                >
+                  {member.name}
+                </Typography>
+                <Typography 
+                  variant="body2" 
+                  color="text.secondary"
+                  sx={{ 
+                    mb: 1.5,
+                    textAlign: 'center',
+                    fontSize: '0.8rem'
+                  }}
+                >
+                  {member.position}
+                </Typography>
+                
+                <Chip 
+                  icon={<LocationIcon fontSize="small" />}
+                  label={member.area} 
+                  size="small" 
+                  color="secondary"
+                  sx={{ 
+                    mb: 2,
+                    fontWeight: 500,
+                    fontSize: '0.7rem'
+                  }}
+                />
+              </Box>
+              
+              <CardContent sx={{ 
+                px: 2, 
+                pt: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                gap: 1
+              }}>
+                <Button
+                  variant="contained"
+                  size="small"
+                  startIcon={<PhoneIcon fontSize="small" />}
+                  sx={{ 
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontSize: '0.75rem',
+                    px: 2,
+                    py: 1
+                  }}
+                  onClick={() => handlePhoneClick(member.phone)}
+                >
+                  Call
+                </Button>
+                
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<EmailIcon fontSize="small" />}
+                  sx={{ 
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontSize: '0.75rem',
+                    px: 2,
+                    py: 1
+                  }}
+                  onClick={() => handleEmailClick(member.email)}
+                >
+                  Email
+                </Button>
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
