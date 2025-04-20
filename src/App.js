@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
@@ -12,6 +13,9 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import theme from './styles/theme';
 import WhomWeWork from './components/WhomWeWork';
+import OrganizationalStructure from './components/OrganizationalStructure';
+
+
 
 
 export const LanguageContext = React.createContext();
@@ -33,6 +37,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about/whom-we-work" element={<WhomWeWork />} />
+            <Route path="/about/organizational-structure" element={<OrganizationalStructure />} /> {/* Fixed typo */}
           </Routes>
           <Footer />
         </Router>

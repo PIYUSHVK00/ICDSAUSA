@@ -46,6 +46,7 @@ const Header = () => {
       subItems: [
         { name: 'आमची माहिती', en: 'About Us', path: '/about', icon: '👥' },
         { name: 'आम्ही कोणासाठी काम करतो', en: 'To Whom We Work', path: '/about/whom-we-work', icon: '👨‍👩‍👧‍👦' },
+        { name: 'संघटनात्मक संरचना', en: 'Organizational Structure', path: '/about/organizational-structure', icon: '🏛️' },
       ]
     },
     { 

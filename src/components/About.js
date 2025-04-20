@@ -19,6 +19,7 @@ import {
   School,
   Event
 } from '@mui/icons-material';
+import { Outlet } from 'react-router-dom';
 
 export default function About() {
   return (
@@ -62,9 +63,7 @@ export default function About() {
               ऑसा येथील आयसीडीएस
             </Typography>
             <Typography paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.6 }}>
-              एकात्मिक बाल विकास सेवा (ICDS) ही भारत सरकारची प्रमुख योजना आहे जी 6 वर्षांखालील मुलांसाठी, 
-              गर्भवती महिला आणि स्तनपान करविणाऱ्या आईंसाठी पोषण, आरोग्य आणि शिक्षण सेवा पुरवते. 
-              ऑसा तालुक्यात ही योजना १९७५ पासून सक्रियपणे कार्यरत आहे.
+              केंद्र पुरस्कृत एकात्मिक बाल विकास सेवा योजना कार्यक्रम दिनांक २ ऑक्टोबर १९७५ रोजी धारणी (अमरावती) व धारावी (मुंबई) या दोन प्रकल्पात बालकांच्या पोषण व आहार विषयक दर्जात सुधारणा करण्यासाठी तसेच बाल मृत्यूचे व कुपोषणाचे प्रमाण कमी करण्याच्या दृष्टिने सुरु करण्यात आला. त्यानंतर टप्प्या टप्प्याने एकात्मिक बाल विकास सेवा योजना प्रकल्पात वाढ होऊन महाराष्ट्र राज्यामध्ये ५५३ बाल विकास प्रकल्प कार्यरत असून त्यामध्ये ग्रामीण व आदिवासी क्षेत्रात ४४९ प्रकल्प आणि नागरी क्षेत्रात १०४ प्रकल्प कार्यरत आहेत. औसा (ग्रामीण) प्रकल्‍पा अंतर्गत एकूण १९८ अंगणवाडी केंद्रे मंजूर असून १९८ अंगणवाडी केंद्रे कार्यान्‍वीत आहेत. 
             </Typography>
           </Grid>
         </Grid>
@@ -87,8 +86,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#d32f2f' }}><ChildCare /></ListItemIcon>
                 <ListItemText 
-                  primary="लहान मुलांचे पोषण" 
-                  secondary="6 वर्षांखालील मुलांसाठी पौष्टिक आहार वाटप" 
+                  primary="पूरक पोषण आहार" 
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
@@ -96,8 +94,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#1976d2' }}><Favorite /></ListItemIcon>
                 <ListItemText 
-                  primary="आरोग्य सेवा" 
-                  secondary="नियमित आरोग्य तपासणी आणि लसीकरण" 
+                  primary="लसीकरण" 
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
@@ -105,8 +102,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#2e7d32' }}><School /></ListItemIcon>
                 <ListItemText 
-                  primary="पूर्व प्राथमिक शिक्षण" 
-                  secondary="आंगणवाडी मध्ये बालवाडी शिक्षण" 
+                  primary="आरोग्य तपासणी" 
                 />
               </ListItem>
             </List>
@@ -119,8 +115,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#f57c00' }}><Group /></ListItemIcon>
                 <ListItemText 
-                  primary="कुटुंब कल्याण" 
-                  secondary="कुटुंब नियोजन आणि महिला सक्षमीकरण" 
+                  primary="संदर्भ सेवा" 
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
@@ -128,8 +123,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#7b1fa2' }}><Restaurant /></ListItemIcon>
                 <ListItemText 
-                  primary="पोषण शिक्षण" 
-                  secondary="पोषक आहारावर मार्गदर्शन" 
+                  primary="आरोग्य व आहार शिक्षण" 
                 />
               </ListItem>
               <Divider variant="inset" component="li" />
@@ -137,8 +131,7 @@ export default function About() {
               <ListItem>
                 <ListItemIcon sx={{ color: '#c2185b' }}><Event /></ListItemIcon>
                 <ListItemText 
-                  primary="नियमित कार्यक्रम" 
-                  secondary="आरोग्य शिबिरे आणि जागरूकता मोहिम" 
+                  primary="अनौपचारिक पूर्व शालेय शिक्षण" 
                 />
               </ListItem>
             </List>
@@ -157,11 +150,11 @@ export default function About() {
           उद्दिष्टे
         </Typography>
         <Typography paragraph sx={{ fontSize: '1.1rem' }}>
-          ✓ 6 वर्षांखालील मुलांमध्ये कुपोषण दूर करणे<br />
-          ✓ माता व बालमृत्यू दर कमी करणे<br />
-          ✓ बालविकासाच्या पायाभूत सुविधा उपलब्ध करणे<br />
-          ✓ महिलांना स्वावलंबी बनविणे<br />
-          ✓ शिक्षण आणि आरोग्य यांचा समन्वय साधणे
+          ✓ 0 ते ६ वर्ष वयोगटातील मुलांचा पोषण व आरोग्य विषयक दर्जा सुधारणे.<br />
+          ✓ मुलांच्या योग्य मानसिक, शारीरिक, सामाजिक विकासाचा पाया घालणे.<br />
+          ✓ बालमृत्यु, बालरोग, कुपोषण आणि शाळा गळतीचे प्रमाण कमी करणे.<br />
+          ✓ बाल विकासास चालना मिळावी म्हणून विविध विभागांमध्ये धोरण व अंमलबजावणी याबाबत परिणामकारक समन्वय साधणे.<br />
+          ✓ योग्य पोषण व आहार विषयक शिक्षणाद्वारे बालकांचे सर्वसामान्य आरोग्य व त्यांच्या पोषण विषयी गरजांकडे लक्ष पुरविण्या विषयीची मातांची क्षमता वाढविणे.
         </Typography>
       </Box>
 
@@ -169,21 +162,21 @@ export default function About() {
       <Grid container spacing={4} sx={{ mb: 6 }}>
         <Grid item xs={12} md={4}>
           <Box textAlign="center" sx={{ p: 3 }}>
-            <Typography variant="h3" sx={{ color: '#d32f2f', fontWeight: 'bold' }}>50+</Typography>
+            <Typography variant="h3" sx={{ color: '#d32f2f', fontWeight: 'bold' }}>१९८</Typography>
             <Typography variant="h6">आंगणवाडी केंद्रे</Typography>
             <Typography>ऑसा तालुक्यात सक्रिय</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box textAlign="center" sx={{ p: 3 }}>
-            <Typography variant="h3" sx={{ color: '#1976d2', fontWeight: 'bold' }}>5000+</Typography>
+            <Typography variant="h3" sx={{ color: '#1976d2', fontWeight: 'bold' }}>१०,०००+</Typography>
             <Typography variant="h6">बालकांना सेवा</Typography>
             <Typography>दररोज पोषण आहार</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
           <Box textAlign="center" sx={{ p: 3 }}>
-            <Typography variant="h3" sx={{ color: '#2e7d32', fontWeight: 'bold' }}>85%</Typography>
+            <Typography variant="h3" sx={{ color: '#2e7d32', fontWeight: 'bold' }}>१००%</Typography>
             <Typography variant="h6">लसीकरण</Typography>
             <Typography>यशस्वी कव्हरेज</Typography>
           </Box>
@@ -202,6 +195,9 @@ export default function About() {
         "समुचित बालविकास हा समृद्ध समाजाचा पाया आहे. आमचा संकल्प प्रत्येक मूल आणि माता यांना 
         सुरक्षित आणि निरोगी भविष्य देण्याचा आहे."
       </Typography>
+
+      {/* Outlet for nested routes */}
+      <Outlet />
     </Container>
   );
 }

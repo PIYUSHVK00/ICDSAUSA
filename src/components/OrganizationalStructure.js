@@ -63,7 +63,7 @@ const OrganizationalStructure = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      {/* Breadcrumbs - Same as To Whom We Work */}
+      {/* Breadcrumbs */}
       <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 4 }}>
         <Link component={RouterLink} to="/" color="inherit">
           {language === 'marathi' ? 'मुख्यपृष्ठ' : 'Home'}
@@ -76,7 +76,7 @@ const OrganizationalStructure = () => {
         </Typography>
       </Breadcrumbs>
 
-      {/* Page Title - Same styling as To Whom We Work */}
+      {/* Page Title */}
       <Typography 
         variant="h3" 
         component="h1" 
@@ -90,7 +90,7 @@ const OrganizationalStructure = () => {
         {language === 'marathi' ? 'संघटनात्मक संरचना' : 'Organizational Structure'}
       </Typography>
 
-      {/* Image at the top - Similar to To Whom We Work intro */}
+      {/* Image at the top */}
       <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
         <Paper elevation={3} sx={{ p: 2, maxWidth: '100%' }}>
           <img
@@ -105,7 +105,7 @@ const OrganizationalStructure = () => {
         </Paper>
       </Box>
 
-      {/* Content Grid - Same card layout as To Whom We Work */}
+      {/* Content Grid */}
       <Grid container spacing={3}>
         {structureLevels.map((level, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>

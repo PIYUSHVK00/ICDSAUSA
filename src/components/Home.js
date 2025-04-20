@@ -138,9 +138,9 @@ const Home = () => {
       aboutBtn: 'अधिक जाणून घ्या',
       contactBtn: 'आमच्याशी संपर्क साधा',
       stats: [
-        { number: '५०+', label: 'आंगणवाडी केंद्रे' },
-        { number: '५०००+', label: 'मुलांना सेवा' },
-        { number: '२०००+', label: 'महिला लाभार्थी' },
+        { number: '१९८', label: 'आंगणवाडी केंद्रे' },
+        { number: '	१०,०००+', label: 'मुलांना सेवा' },
+        { number: '१६००+', label: 'महिला लाभार्थी' },
         { number: '३०+', label: 'वर्षे सेवा' }
       ],
       aboutTitle: 'आयसीडीएस कार्यक्रमाबद्दल',
@@ -209,9 +209,9 @@ const Home = () => {
       aboutBtn: 'Learn More',
       contactBtn: 'Contact Us',
       stats: [
-        { number: '50+', label: 'Anganwadi Centers' },
-        { number: '5000+', label: 'Children Served' },
-        { number: '2000+', label: 'Women Beneficiaries' },
+        { number: '198', label: 'Anganwadi Centers' },
+        { number: '10000+', label: 'Children Served' },
+        { number: '1600+', label: 'Women Beneficiaries' },
         { number: '30+', label: 'Years of Service' }
       ],
       aboutTitle: 'About ICDS Program',
