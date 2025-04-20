@@ -11,6 +11,8 @@ import Centers from './components/Centers';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import theme from './styles/theme';
+import WhomWeWork from './components/WhomWeWork';
+
 
 export const LanguageContext = React.createContext();
 
@@ -30,6 +32,7 @@ function App() {
             <Route path="/centers" element={<Centers />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about/whom-we-work" element={<WhomWeWork />} />
           </Routes>
           <Footer />
         </Router>
