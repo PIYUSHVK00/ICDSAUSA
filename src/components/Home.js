@@ -167,6 +167,16 @@ const Home = () => {
           name: 'श्री कैलास पगारे (भा.प्र.से.)',
           designation: 'आयुक्त, एकात्मिक बाल विकास सेवा, महाराष्ट्र राज्य',
           photo: '/images/commissioner_img.jpeg'
+        },
+        {
+          name: 'श्री. राहुल कुमार मीना (भा.प्र.से.)',
+          designation: 'मुख्य कार्यकारी अधिकारी',
+          photo: '/images/CEO.jpg' // Add appropriate image if available
+        },
+        {
+          name: 'श्री. जे.एस.शेख',
+          designation: 'उप मुख्य कार्यकारी अधिकारी (बा.क.)',
+          photo: '/images/JS.jpg' // Add appropriate image if available
         }
       ],
       servicesTitle: 'आमच्या सेवा',
@@ -238,6 +248,16 @@ const Home = () => {
           name: 'Mr. Kailash Pagare (IAS)',
           designation: 'Commissioner, Integrated Child Development Services, Maharashtra',
           photo: '/images/commissioner_img.jpeg'
+        },
+        {
+          name: 'Mr. Rahul Kumar Meena (IAS)',
+          designation: 'Chief Executive Officer',
+          photo: '/images/CEO.jpg' // Add appropriate image if available
+        },
+        {
+          name: 'Mr. J.S. Sheikh',
+          designation: 'Deputy Chief Executive Officer (Child)',
+          photo: '/images/JS.jpg' // Add appropriate image if available
         }
       ],
       servicesTitle: 'Our Services',

@@ -27,8 +27,8 @@ const mainOfficers = [
   {
     name: 'श्रीमती. जिजाबाई दगडू ढेंगळे',
     position: 'बालविकास प्रकल्प अधिकारी (प्रभारी)',
-    phone: '+919876543210',
-    email: 'cdpo.ausa@icds.gov.in',
+    phone: '+919623885715',
+    email: 'jijabaidhengale@gmail.com',
     image: '/images/dh.jpg',
     social: {
       linkedin: '#',
@@ -38,8 +38,8 @@ const mainOfficers = [
   {
     name: 'श्री. विश्वास शिवलिंग कुंभकर्ण',
     position: 'विस्तार अधिकारी (सांख्यिकी)',
-    phone: '+918765432109',
-    email: 'acdpo.ausa@icds.gov.in',
+    phone: '+919422471824',
+    email: 'karanv0876@gmail.com',
     image: '/images/Vishwas.jpg',
     social: {
       linkedin: '#',
@@ -49,8 +49,8 @@ const mainOfficers = [
   {
     name: 'श्रीमती. बनशंकरी रतन कलशेट्टे',
     position: 'कनिष्ठ सहाय्यक',
-    phone: '+917654321098',
-    email: 'extofficer.ausa@icds.gov.in',
+    phone: '+918788263327',
+    email: 'shriv.bk@gmail.com',
     image: '/images/KL.jpg',
     social: {
       linkedin: '#',
@@ -61,60 +61,61 @@ const mainOfficers = [
 
 const subOfficers = [
   {
-    name: 'श्रीमती सुप्रिया गोविंद शिरमवार',
-    position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+916543210987',
-    email: 'supervisor1.ausa@icds.gov.in',
-    image: '/images/su.jpg',
-    area: 'बुधोडा'
-  },
-  {
     name: 'श्रीमती स्वाती रत्नदिप कडकधोंड',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+915432109876',
-    email: 'supervisor2.ausa@icds.gov.in',
+    phone: '+918668417482',
+    email: 'vhatkar.swati@gmail.com',
     image: '/images/sw.jpg',
     area: 'आलमला'
   },
   {
     name: 'श्रीमती पल्लवी श्रीराम तोडकर',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+914321098765',
-    email: 'accounts.ausa@icds.gov.in',
+    phone: '+919356390238',
+    email: 'pallavitodkar.1996@gmail.com',
     image: '/images/pl.jpg',
     area: 'बेलकुंड'
   },
   {
-    name: 'श्रीमती भाग्यश्री नंदकुमार पाटील',
-    position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+913210987654',
-    email: 'dataentry.ausa@icds.gov.in',
-    image: '/images/pl.jpg',
-    area: 'उजनी'
-  },
-  {
-    name: 'श्रीमती जिजाबाई दगडू ढेंगळे',
-    position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+912109876543',
-    email: 'nutrition.ausa@icds.gov.in',
-    image: '/images/dh.jpg',
-    area: 'चिंचोली काजळे'
-  },
-  {
     name: 'श्रीमती सुचिता हिरालाल कटके',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+911098765432',
-    email: 'medical.ausa@icds.gov.in',
+    phone: '+919665227350',
+    email: 'suchitakatke01@gmail.com',
     image: '/images/default-female.jpg',
     area: 'भादा'
   },
   {
+    name: 'श्रीमती सुप्रिया गोविंद शिरमवार',
+    position: 'अंगणवाडी पर्यवेक्षिका',
+    phone: '+918767871580',
+    email: 'sshiramwad1992@gmail.com',
+    image: '/images/su.jpg',
+    area: 'बुधोडा'
+  },
+  {
+    name: 'श्रीमती जिजाबाई दगडू ढेंगळे',
+    position: 'अंगणवाडी पर्यवेक्षिका',
+    phone: '+919623885715',
+    email: 'jijabaidhengale@gmail.com',
+    image: '/images/dh.jpg',
+    area: 'चिंचोली काजळे'
+  },
+  
+  {
     name: 'श्रीमती सुलभा बाबुराव पाटील',
     position: 'अंगणवाडी पर्यवेक्षिका',
-    phone: '+910987654321',
-    email: 'training.ausa@icds.gov.in',
-    image: '/images/default-female.jpg',
+    phone: '+917620870291',
+    email: 'sulbhapatil121@gmail.com',
+    image: '/images/sul.png',
     area: 'हासेगांव'
+  },
+  {
+    name: 'श्रीमती भाग्यश्री नंदकुमार पाटील',
+    position: 'अंगणवाडी पर्यवेक्षिका',
+    phone: '+917058825103',
+    email: 'bhagyashripatil507@gmail.com',
+    image: '/images/bha.jpg',
+    area: 'उजनी'
   }
 ];
 

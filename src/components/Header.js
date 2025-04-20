@@ -50,16 +50,6 @@ const Header = () => {
       ]
     },
     { 
-      name: 'सेवा', 
-      en: 'Services',
-      icon: '🛠️',
-      subItems: [
-        { name: 'सर्व सेवा', en: 'All Services', path: '/services', icon: '📋' },
-        { name: 'शिशुसेवा', en: 'Child Care', path: '/services/childcare', icon: '👶' },
-        { name: 'पोषण', en: 'Nutrition', path: '/services/nutrition', icon: '🍎' },
-      ]
-    },
-    { 
       name: 'केंद्रे', 
       en: 'Centers', 
       path: '/centers',
