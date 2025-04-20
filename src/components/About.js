@@ -49,7 +49,7 @@ export default function About() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <img 
-              src="https://cdn.pixabay.com/photo/2017/06/09/21/25/children-2387877_640.jpg" 
+              src="aus.jpg" 
               alt="ICDS Activities"
               style={{ 
                 width: '100%', 
@@ -155,6 +155,167 @@ export default function About() {
           ✓ बालमृत्यु, बालरोग, कुपोषण आणि शाळा गळतीचे प्रमाण कमी करणे.<br />
           ✓ बाल विकासास चालना मिळावी म्हणून विविध विभागांमध्ये धोरण व अंमलबजावणी याबाबत परिणामकारक समन्वय साधणे.<br />
           ✓ योग्य पोषण व आहार विषयक शिक्षणाद्वारे बालकांचे सर्वसामान्य आरोग्य व त्यांच्या पोषण विषयी गरजांकडे लक्ष पुरविण्या विषयीची मातांची क्षमता वाढविणे.
+        </Typography>
+      </Box>
+
+      {/* Services Table */}
+      <Box sx={{ 
+        backgroundColor: '#f5f5f5', 
+        p: 4, 
+        borderRadius: 2,
+        mb: 6,
+        overflowX: 'auto'
+      }}>
+        <Typography variant="h5" gutterBottom sx={{ color: '#1565c0', fontWeight: 'bold' }}>
+          एकात्मिक बाल विकास सेवा योजने अंतर्गत पुरविण्यात येणाऱ्या सेवांचा तपशिल
+        </Typography>
+        
+        <Box component="table" sx={{ 
+          width: '100%', 
+          borderCollapse: 'collapse',
+          mt: 3
+        }}>
+          <Box component="thead">
+            <Box component="tr" sx={{ 
+              backgroundColor: '#1976d2',
+              color: 'white'
+            }}>
+              <Box component="th" sx={{ 
+                p: 2, 
+                textAlign: 'left',
+                border: '1px solid #e0e0e0'
+              }}>सेवा</Box>
+              <Box component="th" sx={{ 
+                p: 2, 
+                textAlign: 'left',
+                border: '1px solid #e0e0e0'
+              }}>लाभार्थी प्रकार</Box>
+              <Box component="th" sx={{ 
+                p: 2, 
+                textAlign: 'left',
+                border: '1px solid #e0e0e0'
+              }}>सेवा कोणामार्फत दिल्या जातात</Box>
+            </Box>
+          </Box>
+          <Box component="tbody">
+            {/* Row 1 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>पूरक पोषण आहार (Supplementary Nutrition)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>६ वर्षा खालील मुले</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>अंगणवाडी सेविका/मदतनीस</Box>
+            </Box>
+            
+            {/* Row 2 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>लसीकरण (Immunization)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>६ वर्षा खालील मुले, गर्भवती स्त्रिया व स्तनदा माता</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य विभागाच्या सहकार्याने एएनएम/एमओ</Box>
+            </Box>
+            
+            {/* Row 3 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य तपासणी (Health Checkup)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>६ वर्षा खालील मुले, गर्भवती स्त्रिया व स्तनदा माता</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य विभाग व एबाविसेयो एएनएम/एमओ/अंगणवाडी सेविका</Box>
+            </Box>
+            
+            {/* Row 4 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>संदर्भ सेवा (Referral Services)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>६ वर्षा खालील मुले, गर्भवती स्त्रिया व स्तनदा माता</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य विभाग व एबाविसेयो एएनएम/एमओ/अंगणवाडी सेविका</Box>
+            </Box>
+            
+            {/* Row 5 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>अनौपचारिक पूर्व शालेय शिक्षण (Pre School Education)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>३ ते ६ वर्षे वयोगटातील बालके (मुले/मुली)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>अंगणवाडी सेविका</Box>
+            </Box>
+            
+            {/* Row 6 */}
+            <Box component="tr" sx={{ 
+              '&:nth-of-type(odd)': { backgroundColor: 'white' },
+              '&:hover': { backgroundColor: '#e3f2fd' }
+            }}>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य व आहार शिक्षण (Nutrition and Health Education)</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>१५ ते ४५ वयोगटातील महिला</Box>
+              <Box component="td" sx={{ 
+                p: 2, 
+                border: '1px solid #e0e0e0'
+              }}>आरोग्य विभाग व एबाविसेयो एएनएम/एमओ/अंगणवाडी सेविका</Box>
+            </Box>
+          </Box>
+        </Box>
+        
+        <Typography variant="body1" sx={{ mt: 3, fontStyle: 'italic' }}>
+          वरील प्रकारे सेवा पुरविण्याकरिता तालुकास्तरावर बाल विकास प्रकल्प अधिकारी(ग्रामीण), अंगणवाडी पर्यवेक्षिका तसेच प्रत्येक अंगणवाडी केंद्रावर अंगणवाडी सेविका व मदतनीस अशाप्रकारची यंत्रणा कार्यरत आहे.
         </Typography>
       </Box>
 
