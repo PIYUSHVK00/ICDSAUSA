@@ -47,9 +47,17 @@ const Header = () => {
         { name: 'आमची माहिती', en: 'About Us', path: '/about', icon: '👥' },
         { name: 'आम्ही कोणासाठी काम करतो', en: 'To Whom We Work', path: '/about/whom-we-work', icon: '👨‍👩‍👧‍👦' },
         { name: 'संघटनात्मक संरचना', en: 'Organizational Structure', path: '/about/organizational-structure', icon: '🏛️' },
+        // Add schemes as a sub-item under About
       ]
     },
     { 
+      name: 'सर्व योजना', 
+      en: 'All Schemes', 
+      path: '/Yojana', 
+      icon: '📋',
+      hiddenInHeader: true // This will prevent it from appearing in main nav
+    },
+    {
       name: 'केंद्रे', 
       en: 'Centers', 
       path: '/centers',
@@ -68,6 +76,17 @@ const Header = () => {
       icon: '📞'
     },
   ];
+
+  // Filter out hidden items for main navigation
+  const filteredNavItems = navItems.map(item => {
+    if (item.subItems) {
+      return {
+        ...item,
+        subItems: item.subItems.filter(subItem => !subItem.hiddenInHeader)
+      };
+    }
+    return item;
+  });
 
   // Desktop dropdown handlers
   const handleMenuOpen = (event, index) => {
@@ -99,7 +118,7 @@ const Header = () => {
   // Desktop Navigation
   const renderDesktopNav = () => (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      {navItems.map((item, index) => (
+      {filteredNavItems.map((item, index) => (
         item.subItems ? (
           <div key={index}>
             <Button
@@ -181,7 +200,7 @@ const Header = () => {
     </Box>
   );
 
-  // Mobile Navigation
+  // Mobile Navigation - shows all items including hidden ones
   const renderMobileNav = () => (
     <Drawer
       anchor="right"
