@@ -5,6 +5,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box'; // Add this import
 import Typography from '@mui/material/Typography'; // Add this import
 import theme from './styles/theme';
+import PragatiAhval from './components/PragatiAhval';
+import MahitiAdhikar from './components/MahitiAdhikar';
+import Dhorane from './components/Dhorane';
+
 
 // Layout Components
 import Header from './components/Header';
@@ -50,6 +54,10 @@ function App() {
             <Route path="/centers" element={<Centers />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/pragati-ahval" element={<PragatiAhval />} />
+            <Route path="/mahiti-adhikar" element={<MahitiAdhikar />} />
+            <Route path="/dhorane" element={<Dhorane />} />
+
             
             {/* About Subpages */}
             <Route path="/about/whom-we-work" element={<WhomWeWork />} />

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Container, 
   Typography, 
@@ -14,7 +14,6 @@ import {
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { LanguageContext } from '../App';
 import { 
   ChildCare,
   Restaurant,
@@ -76,7 +75,6 @@ const fadeInUp = {
 };
 
 const Home = () => {
-  const { language } = useContext(LanguageContext);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const controls = useAnimation();
@@ -95,23 +93,23 @@ const Home = () => {
   const slides = [
     {
       image: 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5f6f5512-533d-42e1-8e99-4c7c04e1af8c.png',
-      title: language === 'marathi' ? 'एकात्मिक बाल विकास सेवा' : 'Integrated Child Development Services',
-      subtitle: language === 'marathi' ? 'बालकांच्या संपूर्ण विकासासाठी' : 'For holistic child development'
+      title: 'एकात्मिक बाल विकास सेवा',
+      subtitle: 'बालकांच्या संपूर्ण विकासासाठी'
     },
     {
       image: 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e897b56a-bd0c-43cc-840d-e68cf6a671fa.png',
-      title: language === 'marathi' ? 'पोषण आहार कार्यक्रम' : 'Nutrition Program',
-      subtitle: language === 'marathi' ? 'आरोग्यदायी आहार सेवा' : 'Healthy nutrition services'
+      title: 'पोषण आहार कार्यक्रम',
+      subtitle: 'आरोग्यदायी आहार सेवा'
     },
     {
       image: 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/67dae13d-146f-413e-8c7f-92969bb2301f.png',
-      title: language === 'marathi' ? 'शिक्षण कार्यक्रम' : 'Education Program',
-      subtitle: language === 'marathi' ? 'पूर्व प्राथमिक शिक्षण' : 'Pre-primary education'
+      title: 'शिक्षण कार्यक्रम',
+      subtitle: 'पूर्व प्राथमिक शिक्षण'
     },
     {
       image: 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/79d514e8-e7a2-489a-aee8-bbf811fe3add.png',
-      title: language === 'marathi' ? 'आरोग्य सेवा' : 'Health Services',
-      subtitle: language === 'marathi' ? 'लसीकरण आणि आरोग्य तपासणी' : 'Immunization and health checkups'
+      title: 'आरोग्य सेवा',
+      subtitle: 'लसीकरण आणि आरोग्य तपासणी'
     }
   ];
 
@@ -166,17 +164,17 @@ const Home = () => {
         {
           name: 'श्री कैलास पगारे (भा.प्र.से.)',
           designation: 'आयुक्त, एकात्मिक बाल विकास सेवा, महाराष्ट्र राज्य',
-          photo: '/images/commissioner_img.jpeg'
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/commissioner_img_ndahir.jpg'
         },
         {
           name: 'श्री. राहुल कुमार मीना (भा.प्र.से.)',
           designation: 'मुख्य कार्यकारी अधिकारी',
-          photo: '/images/CEO.jpg' // Add appropriate image if available
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/CEO_aain31.jpg'
         },
         {
           name: 'श्री. जे.एस.शेख',
           designation: 'उप मुख्य कार्यकारी अधिकारी (बा.क.)',
-          photo: '/images/JS.jpg' // Add appropriate image if available
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/JS_orpnf3.jpg'
         }
       ],
       servicesTitle: 'आमच्या सेवा',
@@ -212,91 +210,10 @@ const Home = () => {
           description: 'शिक्षण आणि आरोग्य सेवांद्वारे मातांना सक्षम करणे'
         }
       ]
-    },
-    english: {
-      title: 'Integrated Child Development Services',
-      subtitle: 'Empowering children in Ausa through nutrition, health and education',
-      aboutBtn: 'Learn More',
-      contactBtn: 'Contact Us',
-      stats: [
-        { number: '198', label: 'Anganwadi Centers' },
-        { number: '10000+', label: 'Children Served' },
-        { number: '1600+', label: 'Women Beneficiaries' },
-        { number: '30+', label: 'Years of Service' }
-      ],
-      aboutTitle: 'About ICDS Program',
-      aboutText1: 'Integrated Child Development Services (ICDS) is a flagship program of the Government of India that provides food, preschool education, and primary healthcare to children under 6 years of age and their mothers.',
-      aboutText2: 'In Ausa, the ICDS program has worked diligently with the community, ensuring various initiatives and interventions for the holistic development of children and empowerment of women.',
-      dignitariesTitle: 'Our Dignitaries',
-      dignitaries: [
-        {
-          name: 'Hon. Minister, Ms. Aditi Varda Sunil Tatkare',
-          designation: 'Women and Child Development Department, Maharashtra',
-          photo: '/images/aditi_0.jpeg'
-        },
-        {
-          name: 'Hon. Minister, Mrs. Meghana Deepak Sakore Bordikar',
-          designation: 'Women and Child Development Department, Maharashtra',
-          photo: '/images/state_0.jpeg'
-        },
-        {
-          name: 'Dr. Anup Kumar Yadav (IAS)',
-          designation: 'Principal Secretary, Women and Child Development Department, Maharashtra',
-          photo: '/images/SEC.jpg'
-        },
-        {
-          name: 'Mr. Kailash Pagare (IAS)',
-          designation: 'Commissioner, Integrated Child Development Services, Maharashtra',
-          photo: '/images/commissioner_img.jpeg'
-        },
-        {
-          name: 'Mr. Rahul Kumar Meena (IAS)',
-          designation: 'Chief Executive Officer',
-          photo: '/images/CEO.jpg' // Add appropriate image if available
-        },
-        {
-          name: 'Mr. J.S. Sheikh',
-          designation: 'Deputy Chief Executive Officer (Child)',
-          photo: '/images/JS.jpg' // Add appropriate image if available
-        }
-      ],
-      servicesTitle: 'Our Services',
-      services: [
-        {
-          icon: <ChildCare fontSize="large" />,
-          title: 'Child Care',
-          description: 'Full-time care for children under 6 years'
-        },
-        {
-          icon: <Restaurant fontSize="large" />,
-          title: 'Nutrition',
-          description: 'Supplementary nutrition for children and mothers'
-        },
-        {
-          icon: <LocalHospital fontSize="large" />,
-          title: 'Healthcare',
-          description: 'Immunization and health checkups'
-        },
-        {
-          icon: <School fontSize="large" />,
-          title: 'Pre-primary Education',
-          description: 'Education for children\'s intellectual development'
-        },
-        {
-          icon: <Groups fontSize="large" />,
-          title: 'Community Participation',
-          description: 'Involving local community in child development'
-        },
-        {
-          icon: <VolunteerActivism fontSize="large" />,
-          title: 'Women Empowerment',
-          description: 'Empowering mothers through education and healthcare'
-        }
-      ]
     }
   };
 
-  const currentContent = content[language];
+  const currentContent = content.marathi;
 
   return (
     <Box sx={{ overflow: 'hidden' }}>
@@ -879,7 +796,7 @@ const Home = () => {
                   <Box
                     component="img"
                     src="/images/icds-children.jpg"
-                    alt={language === 'marathi' ? 'आयसीडीएस मुले' : 'ICDS Children'}
+                    alt="आयसीडीएस मुले"
                     sx={{
                       width: '100%',
                       height: 'auto',

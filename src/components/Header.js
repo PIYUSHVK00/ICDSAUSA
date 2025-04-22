@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { 
   AppBar,
   Toolbar,
@@ -10,7 +10,6 @@ import {
   IconButton,
   useMediaQuery,
   useTheme,
-  Divider,
   List,
   ListItem,
   ListItemText,
@@ -22,10 +21,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import { Link } from 'react-router-dom';
-import { LanguageContext } from '../App';
 
 const Header = () => {
-  const { language, setLanguage } = useContext(LanguageContext);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,43 +32,51 @@ const Header = () => {
   const navItems = [
     { 
       name: 'मुख्यपृष्ठ', 
-      en: 'Home', 
       path: '/',
       icon: '🏠'
     },
     { 
       name: 'आमच्याबद्दल', 
-      en: 'About Us',
       icon: 'ℹ️',
       subItems: [
-        { name: 'आमची माहिती', en: 'About Us', path: '/about', icon: '👥' },
-        { name: 'आम्ही कोणासाठी काम करतो', en: 'To Whom We Work', path: '/about/whom-we-work', icon: '👨‍👩‍👧‍👦' },
-        { name: 'संघटनात्मक संरचना', en: 'Organizational Structure', path: '/about/organizational-structure', icon: '🏛️' },
-        // Add schemes as a sub-item under About
+        { name: 'आमची माहिती', path: '/about', icon: '👥' },
+        { name: 'आम्ही कोणासाठी काम करतो', path: '/about/whom-we-work', icon: '👨‍👩‍👧‍👦' },
+        { name: 'संघटनात्मक संरचना', path: '/about/organizational-structure', icon: '🏛️' },
       ]
     },
     { 
       name: 'सर्व योजना', 
-      en: 'All Schemes', 
       path: '/Yojana', 
       icon: '📋',
-      hiddenInHeader: true // This will prevent it from appearing in main nav
+      hiddenInHeader: true
     },
     {
       name: 'केंद्रे', 
-      en: 'Centers', 
       path: '/centers',
       icon: '🏢'
     },
     { 
       name: 'गॅलरी', 
-      en: 'Gallery', 
       path: '/gallery',
       icon: '📷'
     },
     { 
+      name: 'प्रगती अहवाल', 
+      path: '/pragati-ahval',
+      icon: '📈'
+    },
+    { 
+      name: 'माहितीचा अधिकार', 
+      path: '/mahiti-adhikar',
+      icon: 'ℹ️'
+    },
+    { 
+      name: 'धोरणे', 
+      path: '/dhorane',
+      icon: '📜'
+    },
+    { 
       name: 'संपर्क', 
-      en: 'Contact', 
       path: '/contact',
       icon: '📞'
     },
@@ -110,11 +115,6 @@ const Header = () => {
     }
   };
 
-  // Language toggle
-  const handleLanguageToggle = () => {
-    setLanguage(language === 'marathi' ? 'english' : 'marathi');
-  };
-
   // Desktop Navigation
   const renderDesktopNav = () => (
     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -131,7 +131,7 @@ const Header = () => {
                 fontSize: '0.95rem',
               }}
             >
-              {language === 'marathi' ? item.name : item.en}
+              {item.name}
             </Button>
             <Menu
               anchorEl={anchorEl?.index === index ? anchorEl.el : null}
@@ -152,12 +152,12 @@ const Header = () => {
                   to={subItem.path}
                   onClick={handleMenuClose}
                   sx={{
-                    fontFamily: language === 'marathi' ? "'Noto Sans Devanagari', sans-serif" : 'inherit',
+                    fontFamily: "'Noto Sans Devanagari', sans-serif",
                     fontSize: '0.9rem',
                     py: 1.5
                   }}
                 >
-                  {language === 'marathi' ? subItem.name : subItem.en}
+                  {subItem.name}
                 </MenuItem>
               ))}
             </Menu>
@@ -175,28 +175,10 @@ const Header = () => {
               fontSize: '0.95rem',
             }}
           >
-            {language === 'marathi' ? item.name : item.en}
+            {item.name}
           </Button>
         )
       ))}
-      <Button 
-        onClick={handleLanguageToggle}
-        color="inherit"
-        sx={{ 
-          ml: 2,
-          border: '1px solid rgba(255,255,255,0.5)',
-          borderRadius: '20px',
-          px: 2,
-          textTransform: 'none',
-          fontWeight: 500,
-          '&:hover': {
-            borderColor: 'white',
-            backgroundColor: 'rgba(255,255,255,0.1)'
-          }
-        }}
-      >
-        {language === 'marathi' ? 'English' : 'मराठी'}
-      </Button>
     </Box>
   );
 
@@ -258,13 +240,13 @@ const Header = () => {
                 {item.icon}
               </Box>
               <ListItemText 
-                primary={language === 'marathi' ? item.name : item.en} 
+                primary={item.name} 
                 primaryTypographyProps={{ 
                   fontSize: '1rem',
                   fontWeight: 600,
                   color: theme.palette.text.primary,
-                  fontFamily: language === 'marathi' ? "'Noto Sans Devanagari', sans-serif" : "'Roboto', sans-serif",
-                  letterSpacing: language === 'marathi' ? '0.5px' : '0.3px'
+                  fontFamily: "'Noto Sans Devanagari', sans-serif",
+                  letterSpacing: '0.5px'
                 }}
               />
               {item.subItems && (
@@ -300,11 +282,11 @@ const Header = () => {
                         {subItem.icon}
                       </Box>
                       <ListItemText 
-                        primary={language === 'marathi' ? subItem.name : subItem.en} 
+                        primary={subItem.name} 
                         primaryTypographyProps={{ 
                           fontSize: '0.9rem',
                           color: theme.palette.text.secondary,
-                          fontFamily: language === 'marathi' ? "'Noto Sans Devanagari', sans-serif" : "'Roboto', sans-serif",
+                          fontFamily: "'Noto Sans Devanagari', sans-serif",
                           fontWeight: 500
                         }}
                       />
@@ -315,37 +297,6 @@ const Header = () => {
             )}
           </React.Fragment>
         ))}
-        
-        <Divider sx={{ my: 1, bgcolor: 'rgba(0,0,0,0.08)' }} />
-        
-        <ListItem 
-          button 
-          onClick={() => {
-            handleLanguageToggle();
-            handleDrawerToggle();
-          }}
-          sx={{
-            py: 1.5,
-            '&:hover': { backgroundColor: 'rgba(0,0,0,0.05)' }
-          }}
-        >
-          <Box sx={{ 
-            fontSize: '1.4rem',
-            mr: 2,
-            width: 30,
-            textAlign: 'center'
-          }}>
-            {language === 'marathi' ? '🇬🇧' : '🇮🇳'}
-          </Box>
-          <ListItemText 
-            primary={language === 'marathi' ? 'English' : 'मराठी'} 
-            primaryTypographyProps={{ 
-              fontSize: '1rem',
-              fontWeight: 600,
-              color: theme.palette.text.primary
-            }}
-          />
-        </ListItem>
       </List>
     </Drawer>
   );
