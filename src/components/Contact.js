@@ -29,7 +29,7 @@ const mainOfficers = [
     position: 'बालविकास प्रकल्प अधिकारी (प्रभारी)',
     phone: '+919623885715',
     email: 'jijabaidhengale@gmail.com',
-    image: '/images/dh.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/dh_cb0jus.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
@@ -40,7 +40,7 @@ const mainOfficers = [
     position: 'विस्तार अधिकारी (सांख्यिकी)',
     phone: '+919422471824',
     email: 'karanv0876@gmail.com',
-    image: '/images/Vishwas.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300929/Vishwas_r8wtec.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
@@ -51,7 +51,7 @@ const mainOfficers = [
     position: 'कनिष्ठ सहाय्यक',
     phone: '+918788263327',
     email: 'shriv.bk@gmail.com',
-    image: '/images/KL.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/KL_luh4e2.jpg',
     social: {
       linkedin: '#',
       twitter: '#'
@@ -65,7 +65,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+918668417482',
     email: 'vhatkar.swati@gmail.com',
-    image: '/images/sw.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300926/sw_rjnfyd.jpg',
     area: 'आलमला'
   },
   {
@@ -73,7 +73,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+919356390238',
     email: 'pallavitodkar.1996@gmail.com',
-    image: '/images/pl.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/pl_c3xmwy.jpg',
     area: 'बेलकुंड'
   },
   {
@@ -89,7 +89,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+918767871580',
     email: 'sshiramwad1992@gmail.com',
-    image: '/images/su.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/su_aqgk2y.jpg',
     area: 'बुधोडा'
   },
   {
@@ -97,7 +97,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+919623885715',
     email: 'jijabaidhengale@gmail.com',
-    image: '/images/dh.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/dh_cb0jus.jpg',
     area: 'चिंचोली काजळे'
   },
   
@@ -106,7 +106,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+917620870291',
     email: 'sulbhapatil121@gmail.com',
-    image: '/images/sul.png',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300926/sul_uzc3oi.png',
     area: 'हासेगांव'
   },
   {
@@ -114,7 +114,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+917058825103',
     email: 'bhagyashripatil507@gmail.com',
-    image: '/images/bha.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/bha_z3eulf.jpg',
     area: 'उजनी'
   }
 ];

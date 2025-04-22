@@ -151,17 +151,17 @@ const Home = () => {
         {
           name: 'मा. मंत्री, कु. आदिती वरदा सुनील तटकरे',
           designation: 'महिला व बाल विकास विभाग, महाराष्ट्र',
-          photo: '/images/aditi_0.jpeg'
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300924/aditi_0_w2sozm.jpg'
         },
         {
           name: 'मा. राज्यमंत्री, श्रीमती मेघना दीपक साकोरे बोर्डीकर',
           designation: 'महिला व बाल विकास विभाग, महाराष्ट्र',
-          photo: '/images/state_0.jpeg'
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/state_0_zdwdvx.jpg'
         },
         {
           name: 'डॉ. अनुप कुमार यादव (भा.प्र.से.)',
           designation: 'मा. सचिव, महिला व बाल विकास विभाग, महाराष्ट्र राज्य',
-          photo: '/images/SEC.jpg'
+          photo: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745300925/SEC_jgddwt.jpg'
         },
         {
           name: 'श्री कैलास पगारे (भा.प्र.से.)',

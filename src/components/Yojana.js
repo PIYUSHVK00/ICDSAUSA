@@ -61,7 +61,7 @@ const schemes = [
     description: 'कुपोषण दूर करण्यासाठी राष्ट्रीय अभियान'
   },
   {
-    id: 'purak-poshan-ahar',
+    id: 'purak-poshan-aahar',
     title: 'पुरक पोषण आहार',
     image: '/schemes/purak-poshan.jpg',
     description: 'पोषक आहार वितरण कार्यक्रम'
