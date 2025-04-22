@@ -8,7 +8,8 @@ import theme from './styles/theme';
 import PragatiAhval from './components/PragatiAhval';
 import MahitiAdhikar from './components/MahitiAdhikar';
 import Dhorane from './components/Dhorane';
-
+import Jahirata from './components/Jahirata';
+import LoksevaHamiKayda from './components/LoksevaHamiKayda';
 
 // Layout Components
 import Header from './components/Header';
@@ -57,6 +58,8 @@ function App() {
             <Route path="/pragati-ahval" element={<PragatiAhval />} />
             <Route path="/mahiti-adhikar" element={<MahitiAdhikar />} />
             <Route path="/dhorane" element={<Dhorane />} />
+            <Route path="/jahirata" element={<Jahirata />} />
+            <Route path="/lokseva-hami-kayda" element={<LoksevaHamiKayda />} /> 
 
             
             {/* About Subpages */}

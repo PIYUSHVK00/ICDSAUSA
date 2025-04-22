@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AppBar,
   Toolbar,
@@ -14,13 +14,27 @@ import {
   ListItem,
   ListItemText,
   Drawer,
-  Collapse
+  Collapse,
+  Avatar,
+  Slide,
+  useScrollTrigger,
+  CssBaseline
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ExpandLess from '@mui/icons-material/ExpandLess';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import icdsLogo from '../assets/icds-logo.ico'; // Make sure this path is correct
+
+function HideOnScroll({ children }) {
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
 
 const Header = () => {
   const theme = useTheme();
@@ -28,6 +42,26 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // Scroll effect for header
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location]);
 
   const navItems = [
     { 
@@ -42,13 +76,16 @@ const Header = () => {
         { name: 'आमची माहिती', path: '/about', icon: '👥' },
         { name: 'आम्ही कोणासाठी काम करतो', path: '/about/whom-we-work', icon: '👨‍👩‍👧‍👦' },
         { name: 'संघटनात्मक संरचना', path: '/about/organizational-structure', icon: '🏛️' },
+        { name: 'जाहीरात', path: '/jahirata', icon: '📢' }
       ]
     },
     { 
       name: 'सर्व योजना', 
-      path: '/Yojana', 
       icon: '📋',
-      hiddenInHeader: true
+      subItems: [
+        { name: 'योजनांची यादी', path: '/Yojana', icon: '📑' },
+        { name: 'धोरणे', path: '/dhorane', icon: '📜' }
+      ]
     },
     {
       name: 'केंद्रे', 
@@ -64,34 +101,26 @@ const Header = () => {
       name: 'प्रगती अहवाल', 
       path: '/pragati-ahval',
       icon: '📈'
-    },
+    }
+  ];
+
+  const additionalItems = [
     { 
       name: 'माहितीचा अधिकार', 
       path: '/mahiti-adhikar',
       icon: 'ℹ️'
     },
     { 
-      name: 'धोरणे', 
-      path: '/dhorane',
-      icon: '📜'
+      name: 'लोकसेवा हमी कायदा', 
+      path: '/lokseva-hami-kayda',
+      icon: '⚖️'
     },
     { 
       name: 'संपर्क', 
       path: '/contact',
       icon: '📞'
-    },
-  ];
-
-  // Filter out hidden items for main navigation
-  const filteredNavItems = navItems.map(item => {
-    if (item.subItems) {
-      return {
-        ...item,
-        subItems: item.subItems.filter(subItem => !subItem.hiddenInHeader)
-      };
     }
-    return item;
-  });
+  ];
 
   // Desktop dropdown handlers
   const handleMenuOpen = (event, index) => {
@@ -108,17 +137,13 @@ const Header = () => {
   };
 
   const handleMobileMenuToggle = (index) => {
-    if (expandedMenu === index) {
-      setExpandedMenu(null);
-    } else {
-      setExpandedMenu(index);
-    }
+    setExpandedMenu(expandedMenu === index ? null : index);
   };
 
   // Desktop Navigation
   const renderDesktopNav = () => (
-    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-      {filteredNavItems.map((item, index) => (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      {navItems.map((item, index) => (
         item.subItems ? (
           <div key={index}>
             <Button
@@ -126,12 +151,17 @@ const Header = () => {
               onClick={(e) => handleMenuOpen(e, index)}
               sx={{ 
                 textTransform: 'none', 
-                mx: 1,
+                px: 2,
                 fontWeight: 500,
                 fontSize: '0.95rem',
+                borderRadius: '8px',
+                '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.1)'
+                }
               }}
             >
               {item.name}
+              <ExpandMore sx={{ fontSize: '1rem', ml: 0.5 }} />
             </Button>
             <Menu
               anchorEl={anchorEl?.index === index ? anchorEl.el : null}
@@ -139,9 +169,15 @@ const Header = () => {
               onClose={handleMenuClose}
               PaperProps={{
                 sx: {
-                  mt: 1,
-                  minWidth: 200,
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                  mt: 1.5,
+                  minWidth: 220,
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  '& .MuiMenuItem-root': {
+                    fontSize: '0.9rem',
+                    minHeight: 40
+                  }
                 }
               }}
             >
@@ -153,10 +189,14 @@ const Header = () => {
                   onClick={handleMenuClose}
                   sx={{
                     fontFamily: "'Noto Sans Devanagari', sans-serif",
-                    fontSize: '0.9rem',
-                    py: 1.5
+                    py: 1.25,
+                    '&:hover': {
+                      backgroundColor: theme.palette.primary.light,
+                      color: 'white'
+                    }
                   }}
                 >
+                  <Box sx={{ mr: 1.5, opacity: 0.8 }}>{subItem.icon}</Box>
                   {subItem.name}
                 </MenuItem>
               ))}
@@ -170,180 +210,277 @@ const Header = () => {
             color="inherit"
             sx={{ 
               textTransform: 'none', 
-              mx: 1,
+              px: 2,
               fontWeight: 500,
               fontSize: '0.95rem',
+              borderRadius: '8px',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.1)'
+              }
             }}
           >
             {item.name}
           </Button>
         )
       ))}
+      
+      <Box sx={{ display: 'flex', ml: 1, gap: 1 }}>
+        {additionalItems.map((item, index) => (
+          <Button
+            key={index}
+            component={Link}
+            to={item.path}
+            color="inherit"
+            sx={{ 
+              textTransform: 'none', 
+              px: 2,
+              fontWeight: 500,
+              fontSize: '0.95rem',
+              borderRadius: '8px',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.1)'
+              }
+            }}
+          >
+            {item.name}
+          </Button>
+        ))}
+      </Box>
     </Box>
   );
 
-  // Mobile Navigation - shows all items including hidden ones
-  const renderMobileNav = () => (
-    <Drawer
-      anchor="right"
-      open={mobileOpen}
-      onClose={handleDrawerToggle}
-      PaperProps={{
-        sx: {
-          width: '85%',
-          maxWidth: 300,
-          bgcolor: '#f8f9fa',
-          backgroundImage: 'linear-gradient(to bottom, #ffffff, #f8f9fa)',
-          boxShadow: '2px 0 15px rgba(0,0,0,0.1)'
-        }
-      }}
-    >
+  // Mobile Drawer Content
+  const drawerContent = (
+    <Box sx={{ width: '80vw', maxWidth: 350, height: '100vh' }}>
       <Box sx={{ 
         p: 2, 
-        bgcolor: theme.palette.primary.main,
+        bgcolor: 'primary.main',
         color: 'white',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        height: '64px'
       }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', fontFamily: "'Roboto Condensed', sans-serif" }}>
-          ICDS AUSA
-        </Typography>
-        <IconButton onClick={handleDrawerToggle} color="inherit">
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Avatar 
+            src={icdsLogo} 
+            alt="ICDS Logo"
+            sx={{ width: 40, height: 40, mr: 1.5 }}
+          />
+          <Typography variant="h6" sx={{ 
+            fontWeight: 'bold', 
+            fontFamily: "'Roboto Condensed', sans-serif",
+            lineHeight: 1.2
+          }}>
+            ICDS AUSA
+          </Typography>
+        </Box>
+        <IconButton 
+          onClick={handleDrawerToggle} 
+          color="inherit"
+          sx={{
+            '&:hover': {
+              backgroundColor: 'rgba(255,255,255,0.15)'
+            }
+          }}
+        >
           <CloseIcon fontSize="medium" />
         </IconButton>
       </Box>
       
-      <List sx={{ py: 0 }}>
-        {navItems.map((item, index) => (
-          <React.Fragment key={index}>
-            <ListItem 
-              button 
-              component={item.subItems ? 'div' : Link}
-              to={!item.subItems ? item.path : null}
-              onClick={item.subItems ? () => handleMobileMenuToggle(index) : handleDrawerToggle}
-              sx={{
-                '&:hover': { backgroundColor: 'rgba(0,0,0,0.03)' },
-                py: 1.5,
-                borderBottom: '1px solid rgba(0,0,0,0.05)',
-                transition: 'background-color 0.2s ease'
-              }}
-            >
-              <Box sx={{ 
-                fontSize: '1.4rem',
-                mr: 2,
-                width: 30,
-                textAlign: 'center',
-                opacity: 0.8
-              }}>
-                {item.icon}
-              </Box>
-              <ListItemText 
-                primary={item.name} 
-                primaryTypographyProps={{ 
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  color: theme.palette.text.primary,
-                  fontFamily: "'Noto Sans Devanagari', sans-serif",
-                  letterSpacing: '0.5px'
+      <Box sx={{ overflowY: 'auto', height: 'calc(100vh - 64px)' }}>
+        <List sx={{ py: 0 }}>
+          {[...navItems, ...additionalItems].map((item, index) => (
+            <React.Fragment key={index}>
+              <ListItem 
+                button 
+                component={item.subItems ? 'div' : Link}
+                to={!item.subItems ? item.path : null}
+                onClick={item.subItems ? () => handleMobileMenuToggle(index) : undefined}
+                sx={{
+                  py: 1.5,
+                  px: 3,
+                  borderBottom: `1px solid ${theme.palette.divider}`,
+                  '&:hover': { 
+                    backgroundColor: theme.palette.action.hover 
+                  }
                 }}
-              />
+              >
+                <Box sx={{ 
+                  fontSize: '1.4rem',
+                  mr: 2,
+                  width: 30,
+                  textAlign: 'center',
+                  opacity: 0.8
+                }}>
+                  {item.icon}
+                </Box>
+                <ListItemText 
+                  primary={
+                    <Typography sx={{ 
+                      fontWeight: 600,
+                      fontFamily: "'Noto Sans Devanagari', sans-serif"
+                    }}>
+                      {item.name}
+                    </Typography>
+                  }
+                />
+                {item.subItems && (
+                  expandedMenu === index ? 
+                  <ExpandLess sx={{ color: 'text.secondary' }} /> : 
+                  <ExpandMore sx={{ color: 'text.secondary' }} />
+                )}
+              </ListItem>
+              
               {item.subItems && (
-                expandedMenu === index ? 
-                <ExpandLess sx={{ color: theme.palette.text.secondary }} /> : 
-                <ExpandMore sx={{ color: theme.palette.text.secondary }} />
-              )}
-            </ListItem>
-            
-            {item.subItems && (
-              <Collapse in={expandedMenu === index} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding sx={{ bgcolor: 'rgba(0,0,0,0.02)' }}>
-                  {item.subItems.map((subItem, subIndex) => (
-                    <ListItem 
-                      key={subIndex}
-                      button 
-                      component={Link}
-                      to={subItem.path}
-                      onClick={handleDrawerToggle}
-                      sx={{ 
-                        pl: 6,
-                        py: 1.25,
-                        '&:hover': { backgroundColor: 'rgba(0,0,0,0.04)' }
-                      }}
-                    >
-                      <Box sx={{ 
-                        fontSize: '1.2rem',
-                        mr: 2,
-                        width: 30,
-                        textAlign: 'center',
-                        opacity: 0.7
-                      }}>
-                        {subItem.icon}
-                      </Box>
-                      <ListItemText 
-                        primary={subItem.name} 
-                        primaryTypographyProps={{ 
-                          fontSize: '0.9rem',
-                          color: theme.palette.text.secondary,
-                          fontFamily: "'Noto Sans Devanagari', sans-serif",
-                          fontWeight: 500
+                <Collapse in={expandedMenu === index} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding sx={{ 
+                    bgcolor: theme.palette.background.default
+                  }}>
+                    {item.subItems.map((subItem, subIndex) => (
+                      <ListItem 
+                        key={subIndex}
+                        button 
+                        component={Link}
+                        to={subItem.path}
+                        onClick={handleDrawerToggle}
+                        sx={{ 
+                          pl: 6,
+                          py: 1.25,
+                          '&:hover': { 
+                            backgroundColor: theme.palette.action.hover 
+                          }
                         }}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Collapse>
-            )}
-          </React.Fragment>
-        ))}
-      </List>
-    </Drawer>
+                      >
+                        <Box sx={{ 
+                          fontSize: '1.2rem',
+                          mr: 2,
+                          width: 30,
+                          textAlign: 'center',
+                          opacity: 0.7
+                        }}>
+                          {subItem.icon}
+                        </Box>
+                        <ListItemText 
+                          primary={
+                            <Typography sx={{ 
+                              fontFamily: "'Noto Sans Devanagari', sans-serif"
+                            }}>
+                              {subItem.name}
+                            </Typography>
+                          }
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </Collapse>
+              )}
+            </React.Fragment>
+          ))}
+        </List>
+      </Box>
+    </Box>
   );
 
   return (
     <>
-      <AppBar position="fixed" sx={{ 
-        bgcolor: 'primary.main', 
-        boxShadow: 'none',
-      }}>
-        <Toolbar sx={{ 
-          minHeight: { xs: 56, sm: 64 },
-          px: { xs: 2, sm: 3 }
-        }}>
-          <Typography 
-            variant="h6" 
-            component={Link}
-            to="/"
-            sx={{ 
-              flexGrow: 1, 
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              color: 'white',
-              fontFamily: "'Roboto Condensed', sans-serif",
-              fontSize: { xs: '1.1rem', sm: '1.25rem' },
-            }}
-          >
-            ICDS AUSA
-          </Typography>
-          
-          {!isMobile ? renderDesktopNav() : (
-            <IconButton
-              color="inherit"
-              edge="end"
-              onClick={handleDrawerToggle}
-              sx={{ ml: 1 }}
+      <CssBaseline />
+      <HideOnScroll>
+        <AppBar 
+          position="fixed" 
+          sx={{ 
+            zIndex: theme.zIndex.drawer + 1,
+            bgcolor: scrolled ? 'rgba(25, 50, 75, 0.9)' : 'primary.main',
+            backdropFilter: scrolled ? 'blur(10px)' : 'none',
+            boxShadow: scrolled ? theme.shadows[4] : 'none',
+            transition: 'all 0.3s ease',
+            borderBottom: scrolled ? `1px solid ${theme.palette.divider}` : 'none'
+          }}
+        >
+          <Toolbar sx={{ 
+            minHeight: { xs: 56, sm: 70 },
+            px: { xs: 2, sm: 4 },
+            transition: 'all 0.3s ease'
+          }}>
+            <Box 
+              component={Link}
+              to="/"
+              sx={{ 
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: 'inherit',
+                mr: 3
+              }}
             >
-              <MenuIcon fontSize="medium" />
-            </IconButton>
-          )}
-        </Toolbar>
-      </AppBar>
+              <Avatar 
+                src={icdsLogo} 
+                alt="ICDS Logo"
+                sx={{ 
+                  width: { xs: 40, sm: 48 },
+                  height: { xs: 40, sm: 48 },
+                  mr: 1.5,
+                  boxShadow: theme.shadows[2]
+                }}
+              />
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  fontWeight: 'bold',
+                  fontFamily: "'Roboto Condensed', sans-serif",
+                  fontSize: { xs: '1.1rem', sm: '1.35rem' },
+                  lineHeight: 1.2
+                }}
+              >
+                ICDS AUSA
+              </Typography>
+            </Box>
+            
+            <Box sx={{ flexGrow: 1 }} />
+            
+            {!isMobile ? renderDesktopNav() : (
+              <IconButton
+                color="inherit"
+                edge="end"
+                onClick={handleDrawerToggle}
+                sx={{ 
+                  ml: 1,
+                  '&:hover': {
+                    backgroundColor: 'rgba(255,255,255,0.15)'
+                  }
+                }}
+              >
+                <MenuIcon fontSize="medium" />
+              </IconButton>
+            )}
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      
+      {/* Mobile Drawer */}
+      <Box component="nav">
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile
+          }}
+          sx={{
+            display: { xs: 'block', md: 'none' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: '80vw',
+              maxWidth: 350
+            }
+          }}
+        >
+          {drawerContent}
+        </Drawer>
+      </Box>
       
       {/* Add padding to account for AppBar */}
-      <Box sx={{ height: { xs: 56, sm: 64 } }} />
-      
-      {renderMobileNav()}
+      <Toolbar />
     </>
   );
 };
