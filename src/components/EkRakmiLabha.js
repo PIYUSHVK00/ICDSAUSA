@@ -31,10 +31,10 @@ export default function EkRakmiLabhaYojana() {
       </Button>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={5} md={3}>
           <Box
             component="img"
-            src="/schemes/ek-rakmi-labha.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406590/favicon_e2ahxl.jpg"
             alt="एकरक्कमी लाभ योजना"
             sx={{ 
               width: '100%', 

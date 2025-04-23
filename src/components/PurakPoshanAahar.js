@@ -43,10 +43,10 @@ export default function PurakPoshanAahar() {
       </Button>
 
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={5} md={3}>
           <Box
             component="img"
-            src="/schemes/purak-poshan-aahar.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406590/favicon_e2ahxl.jpg"
             alt="पुरक पोषण आहार योजना"
             sx={{ 
               width: '100%', 

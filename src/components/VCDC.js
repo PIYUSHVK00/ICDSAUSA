@@ -44,7 +44,7 @@ export default function VCDCYojana() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/vcdc.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406832/VCDC_d25aop.jpg"
             alt="ग्राम बाल विकास केंद्र (VCDC) योजना"
             sx={{ 
               width: '100%', 

@@ -31,7 +31,7 @@ export default function LekhLadkiYojana() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/lekh-ladki.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386599/2_mojwpt.jpg"
             alt="लेक लाडकी योजना"
             sx={{ 
               width: '100%', 

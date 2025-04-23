@@ -15,7 +15,7 @@ const schemes = [
   {
     id: 'lekh-ladki',
     title: 'लेख लाडकी योजना',
-    image: '/schemes/lekh-ladki.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386599/2_mojwpt.jpg',
     description: 'मुलींच्या शिक्षणासाठी प्रोत्साहन योजना'
   },
   {
@@ -27,7 +27,7 @@ const schemes = [
   {
     id: 'ek-rakmi-labha',
     title: 'एकरक्कमी लाभ योजना',
-    image: '/schemes/ek-rakmi.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406590/favicon_e2ahxl.jpg',
     description: 'एकवेळचे आर्थिक सहाय्य योजना'
   },
   {
@@ -45,13 +45,13 @@ const schemes = [
   {
     id: 'beti-bachao-beti-padhao',
     title: 'बेटी बचाओ बेटी पढाओ योजना',
-    image: '/schemes/beti-bachao.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386607/IMG-20250418-WA0023_xmzw2x.jpg',
     description: 'मुलींचे संरक्षण व शिक्षण प्रोत्साहन'
   },
   {
     id: 'vcdc',
     title: 'ग्राम बाल विकास केंद्र (VCDC)',
-    image: '/schemes/vcdc.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406832/VCDC_d25aop.jpg',
     description: 'ग्रामीण भागातील बाल विकास केंद्रे'
   },
   {
@@ -63,7 +63,7 @@ const schemes = [
   {
     id: 'purak-poshan-aahar',
     title: 'पुरक पोषण आहार',
-    image: '/schemes/purak-poshan.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745406590/favicon_e2ahxl.jpg',
     description: 'पोषक आहार वितरण कार्यक्रम'
   }
 ];
