@@ -46,7 +46,7 @@ export default function PoshanAbhiyan() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/poshan-abhiyan.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386615/poshan_abh_uu4d2b.jpg"
             alt="पोषण अभियान"
             sx={{ 
               width: '100%', 

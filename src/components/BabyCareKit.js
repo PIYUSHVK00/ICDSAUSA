@@ -38,7 +38,7 @@ export default function BabyCareKitYojana() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/baby-care-kit.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386604/baby_care_ea50vy.jpg"
             alt="बेबी केअर किट योजना"
             sx={{ 
               width: '100%', 

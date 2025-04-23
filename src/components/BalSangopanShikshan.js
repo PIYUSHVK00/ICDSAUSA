@@ -32,7 +32,7 @@ export default function BalSangopanShikshan() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/bal-sangopan.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386615/purva_baly_acpkyr.jpg"
             alt="पुर्व बाल्यावस्थेतील संगोपन व शिक्षण"
             sx={{ 
               width: '100%', 

@@ -21,7 +21,7 @@ const schemes = [
   {
     id: 'bal-sangopan-shikshan',
     title: 'पुर्व बाल्यावस्थेतील संगोपन व शिक्षण',
-    image: '/schemes/bal-sangopan.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386615/purva_baly_acpkyr.jpg',
     description: 'लहान मुलांच्या सर्वांगीण विकासासाठी'
   },
   {
@@ -33,13 +33,13 @@ const schemes = [
   {
     id: 'adarsh-anganwadi',
     title: 'आदर्श अंगणवाडी योजना',
-    image: '/schemes/aadarsh-anganwadi.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386601/angan1_ts0psd.jpg',
     description: 'अंगणवाडी केंद्रांच्या सुविधांमध्ये सुधारणा'
   },
   {
     id: 'baby-care-kit',
     title: 'बेबी केअर किट',
-    image: '/schemes/baby-kit.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386604/baby_care_ea50vy.jpg',
     description: 'नवजात बाळांसाठी आवश्यक वस्तूंचे किट'
   },
   {
@@ -57,7 +57,7 @@ const schemes = [
   {
     id: 'poshan-abhiyan',
     title: 'पोषण अभियान',
-    image: '/schemes/poshan.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386615/poshan_abh_uu4d2b.jpg',
     description: 'कुपोषण दूर करण्यासाठी राष्ट्रीय अभियान'
   },
   {

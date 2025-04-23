@@ -795,7 +795,7 @@ const Home = () => {
                 >
                   <Box
                     component="img"
-                    src="/images/icds-children.jpg"
+                    src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386605/home_page_nld9dc.jpg"
                     alt="आयसीडीएस मुले"
                     sx={{
                       width: '100%',

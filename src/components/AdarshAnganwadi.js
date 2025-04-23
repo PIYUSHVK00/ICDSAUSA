@@ -31,7 +31,7 @@ export default function AadarshAnganwadiYojana() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/schemes/aadarsh-anganwadi.jpg"
+            src="https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745386601/angan1_ts0psd.jpg"
             alt="आदर्श अंगणवाडी योजना"
             sx={{ 
               width: '100%', 
