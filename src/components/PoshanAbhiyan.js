@@ -280,10 +280,9 @@ export default function PoshanAbhiyan() {
           अधिक माहितीसाठी संपर्क करा:
         </Typography>
         <Typography>
-          जिल्हा महिला व बाल विकास अधिकारी<br />
-          पोषण अभियान प्रकोष्ठ<br />
-          दूरध्वनी: 020-25678901<br />
-          ईमेल: poshan.maharashtra@gov.in
+        बाल विकास प्रकल्प अधिकारी (ग्रामीण)
+        एकात्मिक बाल विकास सेवा योजना प्रकल्प, औसा<br />
+        ईमेल: cdpoicdsausa@gmail.com
         </Typography>
       </Box>
     </Container>

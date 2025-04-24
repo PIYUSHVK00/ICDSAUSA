@@ -150,9 +150,9 @@ export default function LekhLadkiYojana() {
           अधिक माहितीसाठी संपर्क करा:
         </Typography>
         <Typography>
-          जिल्हा बाल विकास अधिकारी, औसा<br />
-          दूरध्वनी: 02485-222222<br />
-          ईमेल: icds.ausa@maharashtra.gov.in
+        बाल विकास प्रकल्प अधिकारी (ग्रामीण)
+        एकात्मिक बाल विकास सेवा योजना प्रकल्प, औसा<br />
+        ईमेल: cdpoicdsausa@gmail.com
         </Typography>
       </Box>
     </Container>

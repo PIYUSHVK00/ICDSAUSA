@@ -227,10 +227,9 @@ export default function BabyCareKitYojana() {
           अधिक माहितीसाठी संपर्क करा:
         </Typography>
         <Typography>
-          जिल्हा बाल विकास अधिकारी<br />
-          महिला व बाल विकास विभाग<br />
-          दूरध्वनी: 020-25678901<br />
-          ईमेल: wcd.maharashtra@gov.in
+        बाल विकास प्रकल्प अधिकारी (ग्रामीण)
+        एकात्मिक बाल विकास सेवा योजना प्रकल्प, औसा<br />
+        ईमेल: cdpoicdsausa@gmail.com
         </Typography>
       </Box>
     </Container>
