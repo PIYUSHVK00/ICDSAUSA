@@ -81,7 +81,7 @@ const subOfficers = [
     position: 'अंगणवाडी पर्यवेक्षिका',
     phone: '+919665227350',
     email: 'suchitakatke01@gmail.com',
-    image: '/images/default-female.jpg',
+    image: 'https://res.cloudinary.com/dn9q2qrcy/image/upload/v1745514834/SUC_ikvmux.jpg',
     area: 'भादा'
   },
   {

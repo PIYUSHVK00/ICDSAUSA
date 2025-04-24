@@ -8,6 +8,9 @@ import {
   Button,
   TextField,
   FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
   FormLabel,
   RadioGroup,
   FormControlLabel,
@@ -18,15 +21,29 @@ import {
   StepLabel,
   Divider
 } from '@mui/material';
-import { UploadFile } from '@mui/icons-material';
+import { ArrowBack, UploadFile } from '@mui/icons-material';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const steps = ['वैयक्तिक माहिती', 'कुटुंब माहिती', 'दस्तऐवज अपलोड'];
+
+// List of all schemes
+const allSchemes = [
+  { id: 'lekh-ladki', name: 'लेख लाडकी योजना' },
+  { id: 'bal-sangopan-shikshan', name: 'पुर्व बाल्यावस्थेतील संगोपन व शिक्षण' },
+  { id: 'ek-rakmi-labha', name: 'एकरक्कमी लाभ योजना' },
+  { id: 'adarsh-anganwadi', name: 'आदर्श अंगणवाडी योजना' },
+  { id: 'baby-care-kit', name: 'बेबी केअर किट' },
+  { id: 'beti-bachao-beti-padhao', name: 'बेटी बचाओ बेटी पढाओ योजना' },
+  { id: 'vcdc', name: 'ग्राम बाल विकास केंद्र (VCDC)' },
+  { id: 'poshan-abhiyan', name: 'पोषण अभियान' },
+  { id: 'purak-poshan-aahar', name: 'पुरक पोषण आहार' }
+];
 
 export default function ApplyNow() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
+  const [selectedScheme, setSelectedScheme] = useState(id || '');
   const [formData, setFormData] = useState({
     // Personal Information
     fullName: '',
@@ -90,11 +107,15 @@ export default function ApplyNow() {
     }));
   };
 
+  const handleSchemeChange = (e) => {
+    setSelectedScheme(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log('Form submitted:', { ...formData, scheme: selectedScheme });
     alert('अर्ज यशस्वीरित्या सादर केला गेला आहे!');
-    navigate(`/yojana/${id}`);
+    navigate(`/yojana/${selectedScheme}`);
   };
 
   const getStepContent = (step) => {
@@ -104,6 +125,27 @@ export default function ApplyNow() {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <Typography variant="h6" gutterBottom sx={{ color: '#1a237e' }}>
+                योजना निवडा
+              </Typography>
+              <Divider sx={{ mb: 3 }} />
+              <FormControl fullWidth required>
+                <InputLabel>योजना निवडा</InputLabel>
+                <Select
+                  value={selectedScheme}
+                  onChange={handleSchemeChange}
+                  label="योजना निवडा"
+                >
+                  {allSchemes.map((scheme) => (
+                    <MenuItem key={scheme.id} value={scheme.id}>
+                      {scheme.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Typography variant="h6" gutterBottom sx={{ color: '#1a237e', mt: 2 }}>
                 अर्जदाराची माहिती
               </Typography>
               <Divider sx={{ mb: 3 }} />
@@ -172,62 +214,66 @@ export default function ApplyNow() {
               />
             </Grid>
 
-            <Grid item xs={12}>
-              <Typography variant="h6" gutterBottom sx={{ color: '#1a237e', mt: 2 }}>
-                मुलीची माहिती
-              </Typography>
-              <Divider sx={{ mb: 3 }} />
-            </Grid>
+            {selectedScheme === 'lekh-ladki' && (
+              <>
+                <Grid item xs={12}>
+                  <Typography variant="h6" gutterBottom sx={{ color: '#1a237e', mt: 2 }}>
+                    मुलीची माहिती
+                  </Typography>
+                  <Divider sx={{ mb: 3 }} />
+                </Grid>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                required
-                fullWidth
-                label="मुलीचे नाव"
-                name="girlName"
-                value={formData.girlName}
-                onChange={handleChange}
-                variant="outlined"
-              />
-            </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="मुलीचे नाव"
+                    name="girlName"
+                    value={formData.girlName}
+                    onChange={handleChange}
+                    variant="outlined"
+                  />
+                </Grid>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                required
-                fullWidth
-                label="जन्म तारीख"
-                name="dob"
-                type="date"
-                value={formData.dob}
-                onChange={handleChange}
-                variant="outlined"
-                InputLabelProps={{ shrink: true }}
-              />
-            </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="जन्म तारीख"
+                    name="dob"
+                    type="date"
+                    value={formData.dob}
+                    onChange={handleChange}
+                    variant="outlined"
+                    InputLabelProps={{ shrink: true }}
+                  />
+                </Grid>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                required
-                fullWidth
-                label="शाळा/कॉलेजचे नाव"
-                name="schoolName"
-                value={formData.schoolName}
-                onChange={handleChange}
-                variant="outlined"
-              />
-            </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="शाळा/कॉलेजचे नाव"
+                    name="schoolName"
+                    value={formData.schoolName}
+                    onChange={handleChange}
+                    variant="outlined"
+                  />
+                </Grid>
 
-            <Grid item xs={12} md={6}>
-              <TextField
-                required
-                fullWidth
-                label="इयत्ता"
-                name="standard"
-                value={formData.standard}
-                onChange={handleChange}
-                variant="outlined"
-              />
-            </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="इयत्ता"
+                    name="standard"
+                    value={formData.standard}
+                    onChange={handleChange}
+                    variant="outlined"
+                  />
+                </Grid>
+              </>
+            )}
           </Grid>
         );
       case 1:
@@ -439,9 +485,16 @@ export default function ApplyNow() {
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
+      <Button 
+        startIcon={<ArrowBack />}
+        onClick={() => navigate(id ? `/yojana/${id}` : '/yojana')}
+        sx={{ mb: 3 }}
+      >
+        मागे जा
+      </Button>
 
       <Typography variant="h4" gutterBottom sx={{ color: '#1a237e', textAlign: 'center', mb: 4 }}>
-        लेख लाडकी योजना अर्ज फॉर्म
+        {selectedScheme ? allSchemes.find(s => s.id === selectedScheme)?.name : 'योजना अर्ज फॉर्म'}
       </Typography>
 
       <Stepper activeStep={activeStep} alternativeLabel sx={{ mb: 4 }}>
@@ -472,6 +525,7 @@ export default function ApplyNow() {
                 variant="contained"
                 color="primary"
                 sx={{ width: '120px' }}
+                disabled={!selectedScheme}
               >
                 सबमिट करा
               </Button>
@@ -480,6 +534,7 @@ export default function ApplyNow() {
                 variant="contained"
                 onClick={handleNext}
                 sx={{ width: '120px' }}
+                disabled={!selectedScheme && activeStep === 0}
               >
                 पुढे
               </Button>
