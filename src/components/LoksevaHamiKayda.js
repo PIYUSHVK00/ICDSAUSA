@@ -7,40 +7,126 @@ import {
   Accordion, 
   AccordionSummary, 
   AccordionDetails,
-  List,
-  ListItem,
-  ListItemText,
-  Button
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
 } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import DescriptionIcon from '@mui/icons-material/Description';
+
 
 const LoksevaHamiKayda = () => {
+  const navigate = useNavigate();
+  
   const services = [
     {
-      name: 'आंगणवाडी प्रवेश',
-      timeLimit: '७ दिवस',
+      id: 1,
+      name: 'आंगणवाडीतील गरोदर मातांची नोंदणी करणे',
+      timeLimit: '01 दिवस',
       officer: 'आंगणवाडी सेविका',
-      process: 'अर्ज सादर करणे → दस्तऐवज सत्यापन → प्रवेश पत्र जारी'
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी(ग्रा)'
     },
     {
-      name: 'पोषण आहार वितरण',
-      timeLimit: 'महिन्याच्या पहिल्या आठवड्यात',
+      id: 2,
+      name: '06 महिने ते 03 वर्षापर्यंतच्या मुलांची आंगणवाडीत नोंदणी करणे',
+      timeLimit: '01 दिवस',
       officer: 'आंगणवाडी सेविका',
-      process: 'नोंदणी → आहार वितरण'
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी(ग्रा)'
     },
     {
-      name: 'लसीकरण सेवा',
-      timeLimit: 'निर्धारित तारखांना',
-      officer: 'आरोग्य कर्मचारी',
-      process: 'वेळापत्रकानुसार लसीकरण'
+      id: 3,
+      name: '03 ते 06 वर्षापर्यंतच्या मुलांची आंगणवाडीत नोंदणी करणे',
+      timeLimit: '01 दिवस',
+      officer: 'आंगणवाडी सेविका',
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी(ग्रा)'
     },
     {
-      name: 'प्री-स्कूल शिक्षण',
-      timeLimit: 'शैक्षणिक वर्ष सुरू होण्यापासून',
-      officer: 'आंगणवाडी शिक्षिका',
-      process: 'नोंदणी → दैनंदिन शिक्षण कार्यक्रम'
+      id: 4,
+      name: 'इंदिरा गांधी मातृत्व सहयोग योजनेअंतर्गत गर्भवती महिलांना आर्थिक सहाय्य',
+      timeLimit: '15 दिवस',
+      officer: 'आंगणवाडी सेविका',
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी'
+    },
+    {
+      id: 5,
+      name: 'सबली योजनेअंतर्गत विकलांग मुलींचे नोंदणीकरण',
+      timeLimit: '01 दिवस',
+      officer: 'आंगणवाडी सेविका',
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी'
+    },
+    {
+      id: 6,
+      name: 'विकलांग कन्या योजनेअंतर्गत मुलींचे नोंदणीकरण',
+      timeLimit: '01 दिवस',
+      officer: 'आंगणवाडी सेविका',
+      firstAppeal: 'आंगणवाडी पर्यवेक्षिका',
+      secondAppeal: 'बाल विकास प्रकल्प अधिकारी'
+    },
+    {
+      id: 7,
+      name: 'केंद्र सरकारच्या नोकरी करणाऱ्या महिलांसाठीच्या वसतिगृह सुविधेच्या योजनेअंतर्गत अर्ध सरकारी संस्थांच्या सूची करणे',
+      timeLimit: '75 दिवस',
+      officer: 'जिल्हा महिला व बाल विकास अधिकारी',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 8,
+      name: 'मनोदैहिक योजनेअंतर्गत पीडितांना (महिला/बालक) आर्थिक सहाय्य देण्यासाठी पात्रता निश्चिती करणे',
+      timeLimit: '36 दिवस',
+      officer: 'जिल्हा महिला व बाल विकास अधिकारी',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 9,
+      name: 'नैसर्गिक/अनैसर्गिक संकटात सापडलेल्या मुलांना समाजात पुनर्वसनाच्या पायावर उभे करण्यासाठी स्थापन करण्यात आलेल्या राज्यातील बालगृहात/निराकरण गृहात प्रवेश मिळण्यासाठी',
+      timeLimit: '15 दिवस',
+      officer: 'राज्य आधार गृह/निराकरण गृह यांचे अधिक्षक',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 10,
+      name: 'नैसर्गिक/अनैसर्गिक संकटात सापडलेल्या महिलांना समाजात पुनर्वसनाच्या पायावर उभे करण्यासाठी स्थापन करण्यात आलेल्या राज्यातील आश्रयगृहात प्रवेश मिळण्यासाठी',
+      timeLimit: 'तात्काळ',
+      officer: 'राज्य आधार गृहाचे अधिक्षक',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 11,
+      name: 'वेश्याव्यवसायी म्हणून ओळख पटलेल्या महिला/पुरुष वेश्याव्यवसायी आश्रयगृहात प्रवेश',
+      timeLimit: '15 दिवस',
+      officer: 'सहाय्यक आयुक्त (भिक्षा प्रतिबंधक शाखा) महिला व बाल विकास आयुक्तालय, पुणे',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 12,
+      name: 'IITians PACE अॅकॅडमी सारख्या संस्थांच्या शिक्षणाने स्पर्धात्मक परीक्षांसाठी 50 मुलींकरिता मोफत वर्गणीची योजना',
+      timeLimit: 'गुणवत्ता यादी जाहीर झाल्यापासून 30 दिवस',
+      officer: 'सहाय्यक आयुक्त (बाल विकास) महिला व बाल विकास आयुक्तालय, पुणे',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
+    },
+    {
+      id: 13,
+      name: 'समुपदेशन केंद्र चालवण्यासाठी स्वयंसेवी संस्थांनी विनंती उपलब्ध करुन देणेबाबत',
+      timeLimit: '180 दिवस',
+      officer: 'जिल्हा महिला व बाल विकास अधिकारी',
+      firstAppeal: 'उपआयुक्त, महिला व बाल विकास विभाग',
+      secondAppeal: 'सहाय्यक आयुक्त, महिला व बाल विकास आयुक्तालय, पुणे'
     }
   ];
 
@@ -92,40 +178,32 @@ const LoksevaHamiKayda = () => {
             आयसीडीएस अंतर्गत सेवा आणि कालमर्यादा
           </Typography>
           
-          <List>
-            {services.map((service, index) => (
-              <Paper key={index} elevation={2} sx={{ mb: 2 }}>
-                <ListItem>
-                  <Box sx={{ mr: 2, color: 'primary.main' }}>
-                    <DescriptionIcon />
-                  </Box>
-                  <ListItemText
-                    primary={
-                      <Typography sx={{ 
-                        fontWeight: 600,
-                        fontFamily: "'Noto Sans Devanagari', sans-serif"
-                      }}>
-                        {service.name}
-                      </Typography>
-                    }
-                    secondary={
-                      <>
-                        <Typography component="span" sx={{ display: 'block' }}>
-                          कालमर्यादा: {service.timeLimit}
-                        </Typography>
-                        <Typography component="span" sx={{ display: 'block' }}>
-                          जबाबदार अधिकारी: {service.officer}
-                        </Typography>
-                        <Typography component="span" sx={{ display: 'block' }}>
-                          प्रक्रिया: {service.process}
-                        </Typography>
-                      </>
-                    }
-                  />
-                </ListItem>
-              </Paper>
-            ))}
-          </List>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>क्र.</TableCell>
+                  <TableCell>लोकसेवेचे नाव</TableCell>
+                  <TableCell>कालमर्यादा</TableCell>
+                  <TableCell>जबाबदार अधिकारी</TableCell>
+                  <TableCell>प्रथम अपील अधिकारी</TableCell>
+                  <TableCell>द्वितीय अपील अधिकारी</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {services.map((service) => (
+                  <TableRow key={service.id}>
+                    <TableCell>{service.id}</TableCell>
+                    <TableCell>{service.name}</TableCell>
+                    <TableCell>{service.timeLimit}</TableCell>
+                    <TableCell>{service.officer}</TableCell>
+                    <TableCell>{service.firstAppeal}</TableCell>
+                    <TableCell>{service.secondAppeal}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Paper>
 
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
@@ -196,6 +274,7 @@ const LoksevaHamiKayda = () => {
               color="primary"
               fullWidth
               sx={{ mt: 3 }}
+              onClick={() => navigate('/complaint')}
             >
               तक्रार नोंदवा
             </Button>

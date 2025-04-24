@@ -10,7 +10,7 @@ import MahitiAdhikar from './components/MahitiAdhikar';
 import Dhorane from './components/Dhorane';
 import Jahirata from './components/Jahirata';
 import LoksevaHamiKayda from './components/LoksevaHamiKayda';
-
+import ComplaintRegistration from './components/ComplaintRegistration';
 // Layout Components
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -23,6 +23,9 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import WhomWeWork from './components/WhomWeWork';
 import OrganizationalStructure from './components/OrganizationalStructure';
+import ApplyNow from './components/ApplyNow';
+
+
 
 // Scheme Pages
 import SchemesPage from './components/Yojana';
@@ -60,6 +63,8 @@ function App() {
             <Route path="/dhorane" element={<Dhorane />} />
             <Route path="/jahirata" element={<Jahirata />} />
             <Route path="/lokseva-hami-kayda" element={<LoksevaHamiKayda />} /> 
+            <Route path="/apply-now" element={<ApplyNow />} />
+            <Route path="/complaint" element={<ComplaintRegistration />} />
 
             
             {/* About Subpages */}

@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import theme from './styles/theme';
 import WhomWeWork from './components/WhomWeWork';
 import OrganizationalStructure from './components/OrganizationalStructure';
+import ApplyNow from './components/ApplyNow';
 
 
 export const LanguageContext = React.createContext();
@@ -36,6 +37,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about/whom-we-work" element={<WhomWeWork />} />
             <Route path="organizational-structure" element={<OrganizationalStructure />} />
+            <Route path="/yojana" element={<YojanaDropdownPage />} />
+            <Route path="/apply-now" element={<ApplyNow />} />
           </Routes>
           <Footer />
         </Router>
